@@ -1,0 +1,13 @@
+{
+  "background_color": "#8a2be2",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "TriviaGo",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "TriviaGo",
+  "start_url": "/",
+  "theme_color": "#ff69b4",
+  "id": "TriviaGo",
+  "description": "Here is a brief description of **TriviaGo**:\n\n**TriviaGo** is a modern, fast-paced trivia web app designed to test your knowledge across multiple subjects like Science, Coding, History, Geography, Sports, and Mathematics. Featuring vibrant design, category selection, instant answer feedback, and progress tracking, TriviaGo offers a fun and interactive brain workout directly on any device."
+}
