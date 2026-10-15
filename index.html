@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TriviGo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-card">
+    <header class="app-header">
+      <div class="brand-mark">Q</div>
+      <span class="brand-name">QuizOn</span>
+    </header>
+    
+    <!-- Category Selection Screen -->
+    <div id="category-screen" class="screen active">
+      <div class="welcome">
+        <p class="eyebrow">READY TO PLAY?</p>
+        <h1 class="title">Explore Categories</h1>
+        <p class="subtitle">Pick a subject and see how much you know.</p>
+      </div>
+      
+      <div class="category-grid">
+        <button class="cat-card" onclick="startQuiz('physics')"><span class="cat-icon">⚛️</span><span class="cat-name">Physics</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('chemistry')"><span class="cat-icon">🧪</span><span class="cat-name">Chemistry</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('biology')"><span class="cat-icon">🧬</span><span class="cat-name">Biology</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('gk')"><span class="cat-icon">🌍</span><span class="cat-name">General Knowledge</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('geography')"><span class="cat-icon">🗺️</span><span class="cat-name">Geography</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('history')"><span class="cat-icon">📜</span><span class="cat-name">History</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('sports')"><span class="cat-icon">⚽</span><span class="cat-name">Sports</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('coding')"><span class="cat-icon">💻</span><span class="cat-name">Coding</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('computer')"><span class="cat-icon">🖥️</span><span class="cat-name">Computers</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('languages')"><span class="cat-icon">🗣️</span><span class="cat-name">Languages</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('english')"><span class="cat-icon">📚</span><span class="cat-name">English</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card" onclick="startQuiz('math')"><span class="cat-icon">📐</span><span class="cat-name">Mathematics</span><span class="cat-count">20 questions</span></button>
+        <button class="cat-card game-card" onclick="startBlockGame()"><span class="cat-icon">🧩</span><span class="cat-name">Block Coding</span><span class="cat-count">Play a coding game</span></button>
+      </div>
+    </div>
+
+    <!-- Quiz Question Screen -->
+    <div id="quiz-screen" class="screen">
+      <div class="header">
+        <button class="back-btn" onclick="goHome()">← Home</button>
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <h2 id="question-text" class="question">Question goes here...</h2>
+
+      <div id="options-container" class="options-grid"></div>
+
+      <button id="next-btn" class="primary-btn" style="display:none;" onclick="nextQuestion()">Next Question ➔</button>
+    </div>
+
+    <!-- Block Coding Game -->
+    <div id="block-game-screen" class="screen">
+      <div class="header game-header">
+        <button class="back-btn" onclick="goHome()">← Home</button>
+        <p id="game-level" class="game-level">Level 1 of 3</p>
+      </div>
+      <h2 class="game-title">Code the Robot</h2>
+      <p id="game-instructions" class="game-instructions">Build a sequence of blocks to guide the robot to the star.</p>
+      <div id="game-board" class="game-board" role="img" aria-label="Coding game board"></div>
+      <h3 class="block-heading">Your program</h3>
+      <div id="program-blocks" class="program-blocks" aria-live="polite"></div>
+      <div class="block-palette" aria-label="Movement blocks">
+        <button class="movement-block" onclick="addCodeBlock('up')">⬆️ Up</button>
+        <button class="movement-block" onclick="addCodeBlock('right')">➡️ Right</button>
+        <button class="movement-block" onclick="addCodeBlock('down')">⬇️ Down</button>
+        <button class="movement-block" onclick="addCodeBlock('left')">⬅️ Left</button>
+      </div>
+      <p id="game-message" class="game-message" aria-live="polite">Add movement blocks, then run your code.</p>
+      <div class="game-actions">
+        <button id="run-code-btn" class="primary-btn" onclick="runCode()">▶ Run code</button>
+        <button id="clear-code-btn" class="secondary-btn" onclick="clearCode()">Clear blocks</button>
+      </div>
+      <button id="next-level-btn" class="primary-btn" style="display:none;" onclick="nextGameLevel()">Next level ➔</button>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="result-screen" class="screen">
+      <div class="trophy-icon">🏆</div>
+      <h2 class="title">Quiz Completed!</h2>
+      <p id="final-score" class="score-display">You scored 0 / 0</p>
+      <button class="primary-btn" onclick="goHome()">Play Again</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
