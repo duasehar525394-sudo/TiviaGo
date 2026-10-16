@@ -98,5 +98,176 @@
     navigator.serviceWorker.register('sw.js');
   }
 </script>
+
+  <!-- TriviaGo Learning Hub -->
+<button id="open-learning-hub" class="learning-launcher">
+  🧠 Learning Hub
+</button>
+
+<section id="learning-hub" class="learning-overlay" hidden>
+  <div class="learning-panel">
+    <header class="learning-header">
+      <div>
+        <p class="learning-eyebrow">TRIVIAGO • STREAK EDITION</p>
+        <h2>Learning Hub ✨</h2>
+        <p>Play smarter. Learn something every day.</p>
+      </div>
+      <button id="close-learning-hub" class="learning-close" aria-label="Close">
+        ✕
+      </button>
+    </header>
+
+    <div class="learning-stats">
+      <div class="learning-stat">
+        <span>⚡</span>
+        <strong id="learning-xp">0 XP</strong>
+        <small>Total XP</small>
+      </div>
+      <div class="learning-stat">
+        <span>🔥</span>
+        <strong id="learning-streak">0 days</strong>
+        <small>Learning streak</small>
+      </div>
+      <div class="learning-stat">
+        <span>🏅</span>
+        <strong id="learning-badges">0</strong>
+        <small>Badges earned</small>
+      </div>
+    </div>
+
+    <nav class="learning-tabs" aria-label="Learning activities">
+      <button class="learning-tab active" data-tab="brain">🧠 Brain Zone</button>
+      <button class="learning-tab" data-tab="math">🔢 Math Lab</button>
+      <button class="learning-tab" data-tab="words">🔤 Word Play</button>
+      <button class="learning-tab" data-tab="courses">📚 Courses</button>
+      <button class="learning-tab" data-tab="english">✍️ English</button>
+    </nav>
+
+    <div class="learning-content">
+      <section class="learning-page active" id="learning-brain">
+        <div class="learning-section-title">
+          <div>
+            <h3>Brain Zone</h3>
+            <p>Think carefully before revealing the answer!</p>
+          </div>
+          <span class="learning-pill">+10 XP</span>
+        </div>
+
+        <div id="riddle-card" class="learning-challenge"></div>
+
+        <div class="learning-actions">
+          <button id="riddle-answer" class="learning-primary">
+            Reveal answer
+          </button>
+          <button id="next-riddle" class="learning-secondary">
+            Next challenge →
+          </button>
+        </div>
+      </section>
+
+      <section class="learning-page" id="learning-math">
+        <div class="learning-section-title">
+          <div>
+            <h3>Math Lab</h3>
+            <p>Number puzzles and mental-math challenges.</p>
+          </div>
+          <span class="learning-pill">+15 XP</span>
+        </div>
+
+        <div id="math-card" class="learning-challenge"></div>
+
+        <form id="math-form" class="learning-form">
+          <label for="math-answer-input">Your answer</label>
+          <input id="math-answer-input" autocomplete="off"
+            placeholder="Type your answer..." required>
+          <button class="learning-primary" type="submit">Check answer</button>
+        </form>
+        <p id="math-feedback" class="learning-feedback" aria-live="polite"></p>
+        <button id="next-math" class="learning-secondary">
+          Next puzzle →
+        </button>
+      </section>
+
+      <section class="learning-page" id="learning-words">
+        <div class="learning-section-title">
+          <div>
+            <h3>Word Play</h3>
+            <p>Unscramble the letters to discover the word.</p>
+          </div>
+          <span class="learning-pill">+10 XP</span>
+        </div>
+
+        <div id="word-card" class="learning-challenge"></div>
+
+        <form id="word-form" class="learning-form">
+          <label for="word-answer-input">Unscrambled word</label>
+          <input id="word-answer-input" autocomplete="off"
+            placeholder="Enter the word..." required>
+          <button class="learning-primary" type="submit">Check word</button>
+        </form>
+        <p id="word-feedback" class="learning-feedback" aria-live="polite"></p>
+        <button id="next-word" class="learning-secondary">
+          Another word →
+        </button>
+
+        <div class="daily-word-card">
+          <p class="learning-eyebrow">WORD OF THE DAY</p>
+          <h3 id="daily-word"></h3>
+          <p id="daily-definition"></p>
+          <p id="daily-example" class="daily-example"></p>
+          <button id="learn-word" class="learning-primary">
+            I learned this word
+          </button>
+        </div>
+      </section>
+
+      <section class="learning-page" id="learning-courses">
+        <div class="learning-section-title">
+          <div>
+            <h3>Mini Courses</h3>
+            <p>Small lessons you can complete at your own pace.</p>
+          </div>
+        </div>
+        <div id="course-list" class="course-grid"></div>
+        <div id="course-lesson" class="course-lesson" hidden></div>
+      </section>
+
+      <section class="learning-page" id="learning-english">
+        <div class="learning-section-title">
+          <div>
+            <h3>English Corner</h3>
+            <p>A little inspiration and language practice every day.</p>
+          </div>
+        </div>
+
+        <article class="quote-card">
+          <p class="learning-eyebrow">QUOTE OF THE DAY</p>
+          <blockquote id="daily-quote"></blockquote>
+          <p id="quote-author"></p>
+        </article>
+
+        <article class="poem-card">
+          <p class="learning-eyebrow">A LITTLE POEM</p>
+          <h3 id="poem-title"></h3>
+          <p id="daily-poem" class="poem-lines"></p>
+        </article>
+
+        <div class="grammar-card">
+          <p class="learning-eyebrow">GRAMMAR QUICK TIP</p>
+          <h3 id="grammar-title"></h3>
+          <p id="grammar-tip"></p>
+          <p id="grammar-example" class="daily-example"></p>
+          <button id="next-grammar" class="learning-secondary">
+            Another grammar tip →
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <p class="learning-footer">
+      Keep exploring. Every small lesson counts. 💙
+    </p>
+  </div>
+</section>
 </body>
 </html>
