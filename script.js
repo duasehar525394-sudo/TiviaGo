@@ -1,92 +1,47 @@
-// Questions Bank covering all requested subjects
 const quizData = {
-  physics: [
-    { question: "What is the SI unit of force?", options: ["Joule", "Newton", "Watt", "Pascal"], answer: "Newton" },
-    { question: "Which force pulls objects toward Earth?", options: ["Magnetism", "Friction", "Gravity", "Electricity"], answer: "Gravity" },
-    { question: "What is the approximate speed of light in a vacuum?", options: ["300,000 km/s", "30,000 km/s", "3,000 km/s", "300 km/s"], answer: "300,000 km/s" },
-    { question: "What is the SI unit of electric current?", options: ["Volt", "Ohm", "Ampere", "Watt"], answer: "Ampere" },
-    { question: "Which simple machine is a seesaw?", options: ["Pulley", "Lever", "Wheel and axle", "Wedge"], answer: "Lever" },
-    { question: "What form of energy is stored in a stretched spring?", options: ["Chemical energy", "Elastic potential energy", "Sound energy", "Nuclear energy"], answer: "Elastic potential energy" },
-    { question: "Which instrument measures temperature?", options: ["Barometer", "Thermometer", "Ammeter", "Hygrometer"], answer: "Thermometer" },
-    { question: "What happens to light when it passes from air into water and bends?", options: ["Reflection", "Refraction", "Diffraction", "Absorption"], answer: "Refraction" },
-    { question: "What is the SI unit of power?", options: ["Joule", "Newton", "Watt", "Coulomb"], answer: "Watt" },
-    { question: "Which type of lens converges parallel rays of light?", options: ["Concave lens", "Convex lens", "Plane mirror", "Prism"], answer: "Convex lens" },
-    { question: "What is the energy of a moving object called?", options: ["Kinetic energy", "Chemical energy", "Potential energy", "Thermal energy"], answer: "Kinetic energy" },
-    { question: "Which particles carry a negative electric charge?", options: ["Protons", "Neutrons", "Electrons", "Photons"], answer: "Electrons" },
-    { question: "What is the SI unit of frequency?", options: ["Hertz", "Decibel", "Meter", "Tesla"], answer: "Hertz" },
-    { question: "Sound travels fastest through which of these?", options: ["A vacuum", "Air", "Water", "Steel"], answer: "Steel" },
-    { question: "What is the SI unit of electrical resistance?", options: ["Ampere", "Ohm", "Volt", "Watt"], answer: "Ohm" },
-    { question: "Which law states that every action has an equal and opposite reaction?", options: ["Newton's first law", "Newton's second law", "Newton's third law", "Law of gravitation"], answer: "Newton's third law" },
-    { question: "What is the approximate acceleration due to gravity at Earth's surface?", options: ["1.8 m/s²", "9.8 m/s²", "18 m/s²", "98 m/s²"], answer: "9.8 m/s²" },
-    { question: "Which type of energy transfer can travel through empty space?", options: ["Conduction", "Convection", "Radiation", "Evaporation"], answer: "Radiation" },
-    { question: "What is the SI unit of pressure?", options: ["Pascal", "Joule", "Newton", "Watt"], answer: "Pascal" },
-    { question: "Which device converts electrical energy into mechanical motion?", options: ["Electric motor", "Generator", "Battery", "Transformer"], answer: "Electric motor" }
-  ],
-  chemistry: [
-    { question: "What is the chemical symbol for oxygen?", options: ["Ox", "O", "Og", "Oy"], answer: "O" },
-    { question: "What is the chemical formula for water?", options: ["CO2", "H2O", "O2", "NaCl"], answer: "H2O" },
-    { question: "What is the chemical symbol for sodium?", options: ["S", "So", "Na", "N"], answer: "Na" },
-    { question: "A substance with a pH below 7 is usually what?", options: ["Acidic", "Neutral", "Alkaline", "Metallic"], answer: "Acidic" },
-    { question: "What is the center of an atom called?", options: ["Electron", "Nucleus", "Molecule", "Cell"], answer: "Nucleus" },
-    { question: "Which gas do plants absorb from the atmosphere for photosynthesis?", options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"], answer: "Carbon dioxide" },
-    { question: "What is the chemical symbol for gold?", options: ["Go", "Gd", "Au", "Ag"], answer: "Au" },
-    { question: "Which state of matter has a definite volume but no fixed shape?", options: ["Solid", "Liquid", "Gas", "Plasma"], answer: "Liquid" },
-    { question: "What is table salt mainly made of?", options: ["Sodium chloride", "Potassium iodide", "Calcium carbonate", "Sodium bicarbonate"], answer: "Sodium chloride" },
-    { question: "Which gas makes up most of Earth's atmosphere?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"], answer: "Nitrogen" },
-    { question: "What is the chemical symbol for iron?", options: ["Ir", "In", "Fe", "I"], answer: "Fe" },
-    { question: "What is the pH of a neutral solution at room temperature?", options: ["0", "5", "7", "14"], answer: "7" },
-    { question: "What do we call a substance made of only one type of atom?", options: ["Mixture", "Element", "Solution", "Compound"], answer: "Element" },
-    { question: "Which particle in an atom has no electric charge?", options: ["Proton", "Electron", "Neutron", "Ion"], answer: "Neutron" },
-    { question: "What is the chemical symbol for carbon?", options: ["Ca", "C", "Co", "Cr"], answer: "C" },
-    { question: "What is the change from a liquid to a gas called?", options: ["Freezing", "Condensation", "Evaporation", "Melting"], answer: "Evaporation" },
-    { question: "Which gas is commonly used to fill party balloons because it is lighter than air and non-flammable?", options: ["Oxygen", "Helium", "Chlorine", "Carbon dioxide"], answer: "Helium" },
-    { question: "What is the chemical symbol for silver?", options: ["Si", "S", "Ag", "Au"], answer: "Ag" },
-    { question: "What type of bond forms when atoms share electrons?", options: ["Ionic bond", "Covalent bond", "Metallic bond", "Hydrogen bond"], answer: "Covalent bond" },
-    { question: "Which gas is released when many acids react with metals?", options: ["Oxygen", "Hydrogen", "Nitrogen", "Helium"], answer: "Hydrogen" }
-  ],
-  biology: [
-    { question: "What is the basic unit of life?", options: ["Atom", "Tissue", "Cell", "Organ"], answer: "Cell" },
-    { question: "Which organ pumps blood around the human body?", options: ["Lungs", "Brain", "Heart", "Liver"], answer: "Heart" },
-    { question: "Which part of a plant usually absorbs water from the soil?", options: ["Flower", "Leaf", "Stem", "Root"], answer: "Root" },
-    { question: "How many bones are in the typical adult human body?", options: ["106", "206", "306", "406"], answer: "206" },
-    { question: "Which blood cells help the body fight infection?", options: ["Red blood cells", "White blood cells", "Platelets", "Plasma cells"], answer: "White blood cells" },
-    { question: "What is the largest organ of the human body?", options: ["Heart", "Liver", "Skin", "Lungs"], answer: "Skin" },
-    { question: "What is the process by which plants make food using sunlight?", options: ["Respiration", "Photosynthesis", "Fermentation", "Digestion"], answer: "Photosynthesis" },
-    { question: "Which organ is primarily responsible for breathing?", options: ["Kidneys", "Lungs", "Stomach", "Pancreas"], answer: "Lungs" },
-    { question: "What molecule carries genetic information in living things?", options: ["DNA", "Glucose", "Starch", "Hemoglobin"], answer: "DNA" },
-    { question: "Which vitamin can the human body produce with help from sunlight?", options: ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"], answer: "Vitamin D" },
-    { question: "What is the largest mammal on Earth?", options: ["African elephant", "Blue whale", "Giraffe", "Orca"], answer: "Blue whale" },
-    { question: "Which part of a plant makes most of its food?", options: ["Root", "Leaf", "Flower", "Seed"], answer: "Leaf" },
-    { question: "What do bees collect from flowers to make honey?", options: ["Nectar", "Sap", "Pollen only", "Dew"], answer: "Nectar" },
-    { question: "Which organ helps filter waste from the blood to make urine?", options: ["Heart", "Kidney", "Lung", "Stomach"], answer: "Kidney" },
-    { question: "What is the name for an animal that eats only plants?", options: ["Carnivore", "Herbivore", "Omnivore", "Decomposer"], answer: "Herbivore" },
-    { question: "Which cell structure contains most of a cell's genetic material?", options: ["Nucleus", "Cell membrane", "Ribosome", "Vacuole"], answer: "Nucleus" },
-    { question: "What is the change from a caterpillar to a butterfly called?", options: ["Pollination", "Metamorphosis", "Germination", "Respiration"], answer: "Metamorphosis" },
-    { question: "Which body system includes the brain and spinal cord?", options: ["Digestive system", "Nervous system", "Circulatory system", "Skeletal system"], answer: "Nervous system" },
-    { question: "What do mammals feed their young?", options: ["Seeds", "Milk", "Nectar", "Insects"], answer: "Milk" },
-    { question: "Which organisms break down dead plants and animals in an ecosystem?", options: ["Producers", "Decomposers", "Herbivores", "Pollinators"], answer: "Decomposers" }
+  science: [
+    { question: "What element does 'O' represent on the periodic table?", options: ["Gold", "Oxygen", "Osmium", "Silver"], answer: "Oxygen" },
+    { question: "What is the hardest natural substance on Earth?", options: ["Diamond", "Iron", "Quartz", "Titanium"], answer: "Diamond" },
+    { question: "What gas do plants absorb from the atmosphere?", options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"], answer: "Carbon Dioxide" },
+    { question: "What is the center of an atom called?", options: ["Electron", "Nucleus", "Proton", "Shell"], answer: "Nucleus" },
+    { question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], answer: "Mars" },
+    { question: "What is the chemical formula for water?", options: ["CO2", "H2O", "NaCl", "O2"], answer: "H2O" },
+    { question: "How many bones are in the adult human body?", options: ["150", "206", "300", "250"], answer: "206" },
+    { question: "What force keeps us on the ground?", options: ["Magnetism", "Gravity", "Friction", "Tension"], answer: "Gravity" },
+    { question: "What is the closest star to Earth?", options: ["Proxima Centauri", "Sirius", "The Sun", "Betelgeuse"], answer: "The Sun" },
+    { question: "Which blood cells fight infections?", options: ["Red blood cells", "White blood cells", "Platelets", "Plasma"], answer: "White blood cells" },
+    { question: "What is the speed of light approximately?", options: ["300,000 km/s", "3,000 km/s", "30 km/s", "3,000,000 km/s"], answer: "300,000 km/s" },
+    { question: "Which gas makes up most of Earth's atmosphere?", options: ["Oxygen", "Nitrogen", "Argon", "Carbon Dioxide"], answer: "Nitrogen" },
+    { question: "What is the main source of energy for Earth?", options: ["Geothermal", "The Sun", "Wind", "Nuclear"], answer: "The Sun" },
+    { question: "What organ pumps blood through the body?", options: ["Lungs", "Brain", "Heart", "Liver"], answer: "Heart" },
+    { question: "What is the chemical symbol for gold?", options: ["Ag", "Au", "Gd", "Go"], answer: "Au" },
+    { question: "Which vitamin do we get from sunlight?", options: ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"], answer: "Vitamin D" },
+    { question: "What is pure water's pH level?", options: ["0", "5", "7", "14"], answer: "7" },
+    { question: "What instrument measures earthquakes?", options: ["Barometer", "Seismograph", "Thermometer", "Anemometer"], answer: "Seismograph" },
+    { question: "Which animal is the largest mammal?", options: ["African Elephant", "Blue Whale", "Giraffe", "Great White Shark"], answer: "Blue Whale" },
+    { question: "What is the boiling point of water in Celsius?", options: ["50°C", "100°C", "150°C", "212°C"], answer: "100°C" }
   ],
   gk: [
     { question: "Which ocean is the largest on Earth?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], answer: "Pacific" },
     { question: "How many days are in a leap year?", options: ["365", "366", "364", "367"], answer: "366" },
     { question: "What is the currency of Japan?", options: ["Won", "Yuan", "Yen", "Ringgit"], answer: "Yen" },
     { question: "How many colors are traditionally listed in a rainbow?", options: ["Five", "Six", "Seven", "Eight"], answer: "Seven" },
-    { question: "Which animal is the largest mammal on Earth?", options: ["African elephant", "Blue whale", "Giraffe", "Orca"], answer: "Blue whale" },
     { question: "What is the name of the fairy in Peter Pan?", options: ["Cinderella", "Tinker Bell", "Wendy", "Alice"], answer: "Tinker Bell" },
     { question: "How many sides does a hexagon have?", options: ["Five", "Six", "Seven", "Eight"], answer: "Six" },
     { question: "Which instrument has keys, pedals, and strings?", options: ["Flute", "Piano", "Trumpet", "Violin"], answer: "Piano" },
     { question: "What is the largest hot desert in the world?", options: ["Gobi", "Sahara", "Kalahari", "Mojave"], answer: "Sahara" },
     { question: "Which language is primarily spoken in Brazil?", options: ["Spanish", "Portuguese", "French", "Italian"], answer: "Portuguese" },
     { question: "How many minutes are in one hour?", options: ["30", "45", "60", "90"], answer: "60" },
-    { question: "Which bird is commonly associated with delivering babies in folklore?", options: ["Swan", "Stork", "Eagle", "Peacock"], answer: "Stork" },
+    { question: "Which bird is associated with delivering babies in folklore?", options: ["Swan", "Stork", "Eagle", "Peacock"], answer: "Stork" },
     { question: "What is the main ingredient in traditional hummus?", options: ["Lentils", "Chickpeas", "Peas", "Kidney beans"], answer: "Chickpeas" },
     { question: "Which board game uses the pieces king and queen?", options: ["Checkers", "Chess", "Backgammon", "Dominoes"], answer: "Chess" },
     { question: "What is the freezing point of water in Celsius?", options: ["0°C", "10°C", "32°C", "100°C"], answer: "0°C" },
     { question: "Which metal is liquid at room temperature?", options: ["Iron", "Mercury", "Copper", "Aluminum"], answer: "Mercury" },
     { question: "How many rings are on the Olympic flag?", options: ["Four", "Five", "Six", "Seven"], answer: "Five" },
     { question: "Which shape has three sides?", options: ["Square", "Triangle", "Pentagon", "Circle"], answer: "Triangle" },
-    { question: "What is the name of the galaxy that contains our solar system?", options: ["Andromeda", "Milky Way", "Whirlpool", "Sombrero"], answer: "Milky Way" },
-    { question: "Which month has the fewest days in a common year?", options: ["January", "February", "April", "November"], answer: "February" }
+    { question: "What is the name of the galaxy containing our solar system?", options: ["Andromeda", "Milky Way", "Whirlpool", "Sombrero"], answer: "Milky Way" },
+    { question: "Which month has the fewest days in a common year?", options: ["January", "February", "April", "November"], answer: "February" },
+    { question: "What is the tallest mountain in the world?", options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"], answer: "Mount Everest" }
   ],
   geography: [
     { question: "What is the capital city of Japan?", options: ["Kyoto", "Osaka", "Tokyo", "Hiroshima"], answer: "Tokyo" },
@@ -124,12 +79,12 @@ const quizData = {
     { question: "Which civilization developed the city of Machu Picchu?", options: ["Maya", "Aztec", "Inca", "Olmec"], answer: "Inca" },
     { question: "In which year did the first modern Olympic Games take place?", options: ["1888", "1896", "1904", "1920"], answer: "1896" },
     { question: "Who was the first woman to fly solo across the Atlantic Ocean?", options: ["Bessie Coleman", "Amelia Earhart", "Harriet Quimby", "Valentina Tereshkova"], answer: "Amelia Earhart" },
-    { question: "Which document declared the American colonies independent from Britain?", options: ["The Bill of Rights", "The Declaration of Independence", "The Constitution", "The Federalist Papers"], answer: "The Declaration of Independence" },
+    { question: "Which document declared American independence?", options: ["The Bill of Rights", "The Declaration of Independence", "The Constitution", "The Federalist Papers"], answer: "The Declaration of Independence" },
     { question: "Which empire built the Colosseum in Rome?", options: ["Ottoman Empire", "Roman Empire", "Mongol Empire", "Byzantine Empire"], answer: "Roman Empire" },
     { question: "Who was the first woman to win a Nobel Prize?", options: ["Ada Lovelace", "Marie Curie", "Jane Addams", "Rosalind Franklin"], answer: "Marie Curie" },
     { question: "Which explorer led the first expedition to circumnavigate the globe?", options: ["Christopher Columbus", "Ferdinand Magellan", "James Cook", "Vasco da Gama"], answer: "Ferdinand Magellan" },
     { question: "In which year did the Berlin Wall fall?", options: ["1979", "1985", "1989", "1991"], answer: "1989" },
-    { question: "Which ancient civilization is credited with developing democracy in Athens?", options: ["Greeks", "Phoenicians", "Sumerians", "Egyptians"], answer: "Greeks" },
+    { question: "Which ancient civilization developed democracy in Athens?", options: ["Greeks", "Phoenicians", "Sumerians", "Egyptians"], answer: "Greeks" },
     { question: "Who was known as the Maid of Orléans?", options: ["Joan of Arc", "Marie Antoinette", "Catherine the Great", "Eleanor of Aquitaine"], answer: "Joan of Arc" }
   ],
   sports: [
@@ -175,50 +130,6 @@ const quizData = {
     { question: "Which HTML attribute provides alternative text for an image?", options: ["title", "alt", "caption", "src"], answer: "alt" },
     { question: "What does the CSS property 'margin' control?", options: ["Space outside an element's border", "Space inside an element's border", "Text size", "Border color"], answer: "Space outside an element's border" },
     { question: "Which Git command creates a copy of a remote repository on your computer?", options: ["git push", "git clone", "git commit", "git merge"], answer: "git clone" }
-  ],
-  computer: [
-    { question: "What does CPU stand for?", options: ["Central Processing Unit", "Computer Primary Utility", "Core Program Unit", "Central Power User"], answer: "Central Processing Unit" },
-    { question: "Which component is often called the computer's 'brain'?", options: ["Monitor", "CPU", "Keyboard", "Hard drive"], answer: "CPU" },
-    { question: "Which device is commonly used to enter text into a computer?", options: ["Monitor", "Keyboard", "Speaker", "Projector"], answer: "Keyboard" },
-    { question: "What does RAM primarily provide to a computer?", options: ["Temporary working memory", "Permanent file storage", "Internet access", "Printed output"], answer: "Temporary working memory" },
-    { question: "Which of these is an operating system?", options: ["Microsoft Word", "Windows", "Google Chrome", "Adobe Photoshop"], answer: "Windows" },
-    { question: "Which device displays visual output from a computer?", options: ["Mouse", "Monitor", "Microphone", "Router"], answer: "Monitor" },
-    { question: "What does USB stand for?", options: ["Universal Serial Bus", "Unified System Board", "User Storage Block", "Universal Software Base"], answer: "Universal Serial Bus" },
-    { question: "Which device is used to move a pointer and select items on screen?", options: ["Mouse", "Printer", "Scanner", "Speaker"], answer: "Mouse" },
-    { question: "Which type of storage keeps its data when the computer is turned off?", options: ["RAM", "Cache", "SSD", "CPU register"], answer: "SSD" },
-    { question: "What is the main purpose of a computer network?", options: ["Connect devices to share data and resources", "Cool the processor", "Increase screen brightness", "Replace the operating system"], answer: "Connect devices to share data and resources" },
-    { question: "Which of these is a web browser?", options: ["Google Chrome", "Microsoft Excel", "Windows", "Notepad"], answer: "Google Chrome" },
-    { question: "What does Wi-Fi allow devices to do?", options: ["Connect to a network wirelessly", "Print without ink", "Store files permanently", "Increase processor speed"], answer: "Connect to a network wirelessly" },
-    { question: "Which device produces a paper copy of a document?", options: ["Scanner", "Printer", "Webcam", "Router"], answer: "Printer" },
-    { question: "What is phishing?", options: ["A method for cooling a computer", "A scam that tries to steal sensitive information", "A type of computer monitor", "A way to compress files"], answer: "A scam that tries to steal sensitive information" },
-    { question: "Which file extension is commonly used for a PDF document?", options: [".docx", ".jpg", ".pdf", ".mp3"], answer: ".pdf" },
-    { question: "What does a router do in a home network?", options: ["Directs network traffic between devices and networks", "Displays images", "Stores keyboard input", "Scans paper documents"], answer: "Directs network traffic between devices and networks" },
-    { question: "Which of these is an example of cloud storage?", options: ["Google Drive", "A computer keyboard", "A graphics card", "A USB cable"], answer: "Google Drive" },
-    { question: "What is malware?", options: ["Software designed to harm or misuse a computer", "A type of computer screen", "A programming language", "A backup battery"], answer: "Software designed to harm or misuse a computer" },
-    { question: "Which keyboard shortcut commonly copies selected text on Windows?", options: ["Ctrl+C", "Ctrl+V", "Ctrl+Z", "Ctrl+P"], answer: "Ctrl+C" },
-    { question: "What does an antivirus program help protect against?", options: ["Malicious software", "Power outages", "Broken screens", "Slow typing"], answer: "Malicious software" }
-  ],
-  languages: [
-    { question: "Which language is primarily spoken in Brazil?", options: ["Spanish", "Portuguese", "French", "Italian"], answer: "Portuguese" },
-    { question: "What is the most widely spoken language in Mexico?", options: ["Portuguese", "Spanish", "French", "Italian"], answer: "Spanish" },
-    { question: "Which language is primarily spoken in Japan?", options: ["Korean", "Mandarin", "Japanese", "Thai"], answer: "Japanese" },
-    { question: "Which language uses the Cyrillic alphabet as its standard script?", options: ["Russian", "Greek", "Arabic", "Hindi"], answer: "Russian" },
-    { question: "What does 'bonjour' mean in French?", options: ["Goodbye", "Please", "Hello", "Thank you"], answer: "Hello" },
-    { question: "Which language is primarily spoken in Egypt?", options: ["Arabic", "Turkish", "Persian", "Hebrew"], answer: "Arabic" },
-    { question: "Which language is an official language of Austria?", options: ["Dutch", "German", "Danish", "Polish"], answer: "German" },
-    { question: "What does the Spanish word 'gracias' mean?", options: ["Hello", "Please", "Sorry", "Thank you"], answer: "Thank you" },
-    { question: "Which language is primarily spoken in South Korea?", options: ["Japanese", "Korean", "Mongolian", "Mandarin"], answer: "Korean" },
-    { question: "Which language is spoken by most people in Argentina?", options: ["Spanish", "Portuguese", "English", "French"], answer: "Spanish" },
-    { question: "What is the official language of Iran?", options: ["Arabic", "Persian", "Urdu", "Kurdish"], answer: "Persian" },
-    { question: "Which language is primarily spoken in the Netherlands?", options: ["Dutch", "Danish", "Norwegian", "Swedish"], answer: "Dutch" },
-    { question: "What does the French word 'merci' mean?", options: ["Good morning", "Thank you", "Excuse me", "Good night"], answer: "Thank you" },
-    { question: "Which language is primarily spoken in Bangladesh?", options: ["Bengali", "Tamil", "Nepali", "Punjabi"], answer: "Bengali" },
-    { question: "Which language is one of the official languages of Switzerland?", options: ["Greek", "German", "Russian", "Portuguese"], answer: "German" },
-    { question: "What is the main language spoken in mainland China?", options: ["Cantonese", "Mandarin Chinese", "Japanese", "Korean"], answer: "Mandarin Chinese" },
-    { question: "Which language is primarily spoken in Greece?", options: ["Greek", "Latin", "Turkish", "Albanian"], answer: "Greek" },
-    { question: "What does the Italian word 'ciao' commonly mean?", options: ["Please", "Hello or goodbye", "Thank you", "Good night"], answer: "Hello or goodbye" },
-    { question: "Which language is primarily spoken in Thailand?", options: ["Vietnamese", "Thai", "Lao", "Khmer"], answer: "Thai" },
-    { question: "Which language is the primary official language of Portugal?", options: ["Spanish", "Portuguese", "French", "Catalan"], answer: "Portuguese" }
   ],
   english: [
     { question: "Which word is a synonym for 'Huge'?", options: ["Tiny", "Gigantic", "Narrow", "Short"], answer: "Gigantic" },
@@ -269,6 +180,13 @@ const quizData = {
 let currentCategory = [];
 let currentQuestionIndex = 0;
 let score = 0;
+const QUIZ_XP_KEY = "triviagoQuizXPv1";
+let userXP = 0;
+try {
+  userXP = Math.max(0, Number(localStorage.getItem(QUIZ_XP_KEY)) || 0);
+} catch (error) {
+  userXP = 0;
+}
 let currentGameLevel = 0;
 let gameProgram = [];
 let isRunningCode = false;
@@ -278,12 +196,14 @@ const gameLevels = [
   { start: [0, 0], goal: [3, 2], walls: [[1, 0], [1, 1]] },
   { start: [0, 0], goal: [4, 4], walls: [[1, 1], [2, 1], [3, 1], [3, 3]] }
 ];
+
 const moveOffsets = {
   up: [-1, 0],
   right: [0, 1],
   down: [1, 0],
   left: [0, -1]
 };
+
 const moveLabels = {
   up: "⬆️ Up",
   right: "➡️ Right",
@@ -291,20 +211,19 @@ const moveLabels = {
   left: "⬅️ Left"
 };
 
-// Screens
 const categoryScreen = document.getElementById('category-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 const blockGameScreen = document.getElementById('block-game-screen');
+const physicsSimScreen = document.getElementById('physics-sim-screen');
 
-// Elements
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const nextBtn = document.getElementById('next-btn');
 const progressBar = document.getElementById('progress-bar');
 
 function startQuiz(categoryKey) {
-  currentCategory = quizData[categoryKey];
+  currentCategory = quizData[categoryKey] || quizData['science'];
   currentQuestionIndex = 0;
   score = 0;
 
@@ -316,11 +235,10 @@ function loadQuestion() {
   resetState();
   let currentQuiz = currentCategory[currentQuestionIndex];
   
-  // Update progress bar
   const progressPercent = ((currentQuestionIndex) / currentCategory.length) * 100;
   progressBar.style.width = `${progressPercent}%`;
 
-  questionText.innerText = currentQuiz.question;
+  questionText.innerText = `${currentQuestionIndex + 1}. ${currentQuiz.question}`;
 
   currentQuiz.options.forEach(option => {
     const button = document.createElement("button");
@@ -337,18 +255,17 @@ function resetState() {
 }
 
 function selectOption(button, selected, correct) {
+  Array.from(optionsContainer.children).forEach(btn => btn.disabled = true);
+
   if (selected === correct) {
     button.classList.add("correct");
     score++;
   } else {
     button.classList.add("wrong");
+    Array.from(optionsContainer.children).forEach(btn => {
+      if (btn.innerText === correct) btn.classList.add("correct");
+    });
   }
-
-  // Highlight correct answer and disable all buttons
-  Array.from(optionsContainer.children).forEach(btn => {
-    if (btn.innerText === correct) btn.classList.add("correct");
-    btn.disabled = true;
-  });
 
   nextBtn.style.display = "block";
 }
@@ -363,10 +280,17 @@ function nextQuestion() {
 }
 
 function showResults() {
-  switchScreen(resultScreen);
+  const xpEarned = score * 50;
+  userXP += xpEarned;
+  try { localStorage.setItem(QUIZ_XP_KEY, String(userXP)); } catch (error) { /* Storage may be unavailable. */ }
+  const xpCount = document.getElementById('xp-count');
+  if (xpCount) xpCount.innerText = userXP.toLocaleString();
   document.getElementById('final-score').innerText = `You scored ${score} / ${currentCategory.length}`;
+  document.getElementById('xp-gained').innerText = `+${xpEarned} XP Gained!`;
+  switchScreen(resultScreen);
 }
 
+// Robot Coder Simulation Game
 function startBlockGame() {
   currentGameLevel = 0;
   gameProgram = [];
@@ -380,7 +304,6 @@ function renderGame(robotPosition) {
   const robot = robotPosition || level.start;
   const board = document.getElementById('game-board');
   const programBlocks = document.getElementById('program-blocks');
-  const message = document.getElementById('game-message');
   const controlsDisabled = isRunningCode || document.getElementById('next-level-btn').style.display !== 'none';
 
   document.getElementById('game-level').innerText = `Level ${currentGameLevel + 1} of ${gameLevels.length}`;
@@ -389,7 +312,7 @@ function renderGame(robotPosition) {
   for (let row = 0; row < 5; row++) {
     for (let column = 0; column < 5; column++) {
       const cell = document.createElement('div');
-      const isWall = level.walls.some(([wallRow, wallColumn]) => wallRow === row && wallColumn === column);
+      const isWall = level.walls.some(([wRow, wCol]) => wRow === row && wCol === column);
       cell.className = isWall ? 'game-cell wall' : 'game-cell';
       if (robot[0] === row && robot[1] === column) {
         cell.innerText = '🤖';
@@ -406,14 +329,13 @@ function renderGame(robotPosition) {
   if (gameProgram.length === 0) {
     const placeholder = document.createElement('span');
     placeholder.className = 'program-placeholder';
-    placeholder.innerText = 'Your blocks will appear here. Click a block to remove it.';
+    placeholder.innerText = 'Add blocks below to build program.';
     programBlocks.appendChild(placeholder);
   } else {
     gameProgram.forEach((direction, index) => {
       const block = document.createElement('button');
       block.className = 'program-block';
       block.innerText = `${index + 1}. ${moveLabels[direction]}`;
-      block.title = 'Click to remove this block';
       block.disabled = controlsDisabled;
       block.addEventListener('click', () => removeCodeBlock(index));
       programBlocks.appendChild(block);
@@ -421,30 +343,27 @@ function renderGame(robotPosition) {
   }
 
   document.querySelectorAll('.movement-block').forEach(button => {
-    button.disabled = controlsDisabled || gameProgram.length >= 12;
+    button.disabled = controlsDisabled || gameProgram.length >= 10;
   });
   document.getElementById('run-code-btn').disabled = controlsDisabled || gameProgram.length === 0;
   document.getElementById('clear-code-btn').disabled = controlsDisabled || gameProgram.length === 0;
 }
 
 function addCodeBlock(direction) {
-  if (isRunningCode || gameProgram.length >= 12 || !moveOffsets[direction]) return;
+  if (isRunningCode || gameProgram.length >= 10) return;
   gameProgram.push(direction);
-  setGameMessage('Block added. Keep building your program, then run it.', '');
   renderGame();
 }
 
 function removeCodeBlock(index) {
   if (isRunningCode) return;
   gameProgram.splice(index, 1);
-  setGameMessage('Block removed. Update your program and try again.', '');
   renderGame();
 }
 
 function clearCode() {
   if (isRunningCode) return;
   gameProgram = [];
-  setGameMessage('Program cleared. Add movement blocks to begin.', '');
   renderGame();
 }
 
@@ -453,49 +372,39 @@ async function runCode() {
 
   isRunningCode = true;
   document.getElementById('next-level-btn').style.display = 'none';
-  setGameMessage('Running your program...', '');
+  setGameMessage('Running program...', '');
   let position = [...gameLevels[currentGameLevel].start];
   renderGame(position);
 
   for (const direction of gameProgram) {
-    await new Promise(resolve => window.setTimeout(resolve, 300));
-    const [rowOffset, columnOffset] = moveOffsets[direction];
-    const nextPosition = [position[0] + rowOffset, position[1] + columnOffset];
+    await new Promise(resolve => window.setTimeout(resolve, 350));
+    const [rowOffset, colOffset] = moveOffsets[direction];
+    const nextPos = [position[0] + rowOffset, position[1] + colOffset];
     const level = gameLevels[currentGameLevel];
-    const hitWall = level.walls.some(([row, column]) => row === nextPosition[0] && column === nextPosition[1]);
-    const outsideBoard = nextPosition.some(coordinate => coordinate < 0 || coordinate > 4);
+    const hitWall = level.walls.some(([r, c]) => r === nextPos[0] && c === nextPos[1]);
+    const outOfBounds = nextPos.some(coord => coord < 0 || coord > 4);
 
-    if (hitWall || outsideBoard) {
+    if (hitWall || outOfBounds) {
       isRunningCode = false;
       renderGame(level.start);
-      setGameMessage(hitWall ? 'Oops! The robot hit a block. Edit your program and try again.' : 'The robot went off the board. Edit your program and try again.', 'error');
+      setGameMessage('Robot hit an obstacle! Try again.', 'error');
       return;
     }
 
-    position = nextPosition;
+    position = nextPos;
     renderGame(position);
   }
 
   isRunningCode = false;
   if (position[0] === gameLevels[currentGameLevel].goal[0] &&
       position[1] === gameLevels[currentGameLevel].goal[1]) {
-    document.getElementById('next-level-btn').style.display = currentGameLevel === gameLevels.length - 1 ? 'none' : 'block';
-    if (currentGameLevel === gameLevels.length - 1) {
-      document.getElementById('next-level-btn').innerText = 'Play again';
-      document.getElementById('next-level-btn').style.display = 'block';
-    } else {
-      document.getElementById('next-level-btn').innerText = 'Next level ➔';
-    }
-    renderGame(position);
-    setGameMessage(
-      currentGameLevel === gameLevels.length - 1
-        ? 'Amazing! You completed all the coding levels!'
-        : 'Great job! Your program reached the star.',
-      'success'
-    );
+    const isLast = currentGameLevel === gameLevels.length - 1;
+    const nextBtnEl = document.getElementById('next-level-btn');
+    nextBtnEl.style.display = 'block';
+    nextBtnEl.innerText = isLast ? 'Restart Game' : 'Next Level ➔';
+    setGameMessage(isLast ? 'Victory! All levels completed!' : 'Great job! Level cleared.', 'success');
   } else {
-    setGameMessage('Not quite! Your robot did not reach the star. Edit your blocks and try again.', 'error');
-    renderGame(position);
+    setGameMessage('Did not reach the star. Try again.', 'error');
   }
 }
 
@@ -504,39 +413,76 @@ function nextGameLevel() {
     startBlockGame();
     return;
   }
-
   currentGameLevel++;
   gameProgram = [];
-  setGameMessage('New level! Build a program to reach the star.', '');
+  setGameMessage('', '');
   document.getElementById('next-level-btn').style.display = 'none';
   renderGame();
 }
 
 function setGameMessage(text, state) {
   const message = document.getElementById('game-message');
+  if (!message) return;
   message.innerText = text;
   message.className = `game-message ${state}`;
 }
 
-function goHome() {
-  const inQuiz = quizScreen.classList.contains('active');
-  const inGame = blockGameScreen.classList.contains('active');
-  if ((inQuiz || inGame) &&
-      !window.confirm(`Are you sure you want to exit this ${inGame ? 'game' : 'quiz'}? Your progress will be lost.`)) {
-    return;
-  }
+// Physics Simulation Sandbox
+function startPhysicsSim() {
+  switchScreen(physicsSimScreen);
+  resetSim();
+}
 
+function updateSimParams() {
+  document.getElementById('angle-val').innerText = document.getElementById('sim-angle').value;
+  document.getElementById('vel-val').innerText = document.getElementById('sim-velocity').value;
+}
+
+function resetSim() {
+  const proj = document.getElementById('sim-projectile');
+  proj.style.left = '20px';
+  proj.style.bottom = '20px';
+  document.getElementById('sim-message').innerText = 'Adjust settings and hit launch!';
+  document.getElementById('sim-message').className = 'game-message';
+}
+
+function launchSimulation() {
+  resetSim();
+  const angle = parseFloat(document.getElementById('sim-angle').value) * (Math.PI / 180);
+  const velocity = parseFloat(document.getElementById('sim-velocity').value);
+  const proj = document.getElementById('sim-projectile');
+  
+  let t = 0;
+  const timer = setInterval(() => {
+    t += 0.08;
+    // Simple projectile formula simulation
+    const x = 20 + (velocity * Math.cos(angle) * t * 2.5);
+    const y = 20 + (velocity * Math.sin(angle) * t * 2.5) - (4.9 * t * t * 8);
+
+    if (y <= 20) {
+      clearInterval(timer);
+      proj.style.bottom = '20px';
+      // Target is roughly around x: 280-310px
+      if (x >= 270 && x <= 320) {
+        document.getElementById('sim-message').innerText = '🎉 Bullseye! Perfect trajectory!';
+        document.getElementById('sim-message').className = 'game-message success';
+      } else {
+        document.getElementById('sim-message').innerText = `❌ Missed! Landed at distance ${Math.round(x)}m. Try adjusting angle/velocity.`;
+        document.getElementById('sim-message').className = 'game-message error';
+      }
+      return;
+    }
+
+    proj.style.left = `${x}px`;
+    proj.style.bottom = `${y}px`;
+  }, 30);
+}
+
+function goHome() {
   switchScreen(categoryScreen);
 }
 
-window.addEventListener('beforeunload', event => {
-  if (quizScreen.classList.contains('active') || blockGameScreen.classList.contains('active')) {
-    event.preventDefault();
-    event.returnValue = '';
-  }
-});
-
 function switchScreen(activeScreen) {
-  [categoryScreen, quizScreen, resultScreen, blockGameScreen].forEach(screen => screen.classList.remove('active'));
+  [categoryScreen, quizScreen, resultScreen, blockGameScreen, physicsSimScreen].forEach(screen => screen.classList.remove('active'));
   activeScreen.classList.add('active');
 }
