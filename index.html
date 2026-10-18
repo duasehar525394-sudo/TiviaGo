@@ -3,233 +3,356 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080d20">
-  <meta name="description" content="TriviaGo Streak Edition — quizzes, coding puzzles, learning courses and physics simulations.">
-  <title>TriviaGo — Streak Edition</title>
+  <title>TriviaGo - Streak & Simulation Edition</title>
+  <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="app-header">
-    <a class="logo" href="#" onclick="goHome(); return false;" aria-label="TriviaGo home">
-      <span class="logo-icon" aria-hidden="true">✦</span>
-      <span>TriviaGo</span>
-    </a>
-    <nav class="header-actions" aria-label="Main navigation">
-      <button type="button" class="secondary-btn" onclick="goHome()">Home</button>
-      <a class="btn" href="#learning-hub">Learning Hub</a>
-    </nav>
-  </header>
 
-  <main class="app-container">
-    <!-- HOME / CATEGORY SCREEN -->
-    <section id="category-screen" class="screen active">
-      <div class="hero">
-        <p class="eyebrow">YOUR DAILY DOSE OF DISCOVERY</p>
-        <h1>Think faster.<br><span class="gradient-text">Level up every day.</span></h1>
-        <p>Challenge your brain, earn XP, build a streak, and learn something new.</p>
-        <button type="button" class="primary-btn" onclick="startDailyChallenge()">⚡ Start Daily Challenge</button>
+  <div class="app-card">
+    
+    <!-- Home / Dashboard Screen -->
+    <div id="category-screen" class="screen active">
+      <div class="app-header">
+        <svg class="brand-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:34px; height:34px; filter: drop-shadow(0 0 8px var(--cyan-glow));">
+          <path d="M55 10 L20 55 L48 55 L35 90 L80 40 L50 40 Z" stroke="url(#cyanGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00f2fe" />
+              <stop offset="100%" stop-color="#a855f7" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-name">TriviaGo</span>
       </div>
 
-      <section aria-label="Your progress">
-        <div class="stats-grid">
-          <article class="stat-card">
-            <span class="stat-value" id="xp-display">0</span>
-            <span class="stat-label">Total XP</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-value" id="streak-display">0 🔥</span>
-            <span class="stat-label">Daily streak</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-value" id="best-streak-display">0</span>
-            <span class="stat-label">Best streak</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-value" id="level-display">1</span>
-            <span class="stat-label">Level</span>
-          </article>
+      <!-- Daily Challenge Feature Banner -->
+      <button type="button" class="daily-banner" onclick="startQuiz('science')" aria-label="Start a science challenge">
+        <div>
+          <div class="daily-title">⚡ Daily Challenge</div>
+          <div class="daily-sub">A fresh science challenge to sharpen your skills.</div>
         </div>
-      </section>
+        <span class="badge-pill">PLAY</span>
+      </button>
 
-      <section aria-labelledby="categories-heading">
-        <h2 id="categories-heading">Choose your challenge</h2>
-        <p class="subtitle">Pick a category and see what you know.</p>
-        <div class="category-grid">
-          <button class="category-card" type="button" onclick="startQuiz('science')">
-            <span class="category-icon">🔬</span><h3>Science</h3><p>Discover how the world works.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('gk')">
-            <span class="category-icon">🧠</span><h3>General Knowledge</h3><p>Test what you know.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('geography')">
-            <span class="category-icon">🌍</span><h3>Geography</h3><p>Explore our planet.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('history')">
-            <span class="category-icon">🏛️</span><h3>History</h3><p>Travel through time.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('sports')">
-            <span class="category-icon">🏆</span><h3>Sports</h3><p>Put your sports knowledge to the test.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('coding')">
-            <span class="category-icon">💻</span><h3>Coding</h3><p>Think like a programmer.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('english')">
-            <span class="category-icon">📚</span><h3>English</h3><p>Words, grammar and language.</p>
-          </button>
-          <button class="category-card" type="button" onclick="startQuiz('math')">
-            <span class="category-icon">➗</span><h3>Mathematics</h3><p>Numbers, logic and equations.</p>
-          </button>
-        </div>
-      </section>
+      <!-- Categories & Simulations -->
+      <div class="section-title" style="margin-bottom: 12px; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Select Subject / Simulation</div>
+      <div class="category-grid">
+        <button class="cat-card" onclick="startQuiz('science')">
+          <div class="cat-icon">🔬</div>
+          <div class="cat-name">Science</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('gk')">
+          <div class="cat-icon">🌍</div>
+          <div class="cat-name">General Knowledge</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('geography')">
+          <div class="cat-icon">🗺️</div>
+          <div class="cat-name">Geography</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('history')">
+          <div class="cat-icon">📜</div>
+          <div class="cat-name">History</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('sports')">
+          <div class="cat-icon">⚽</div>
+          <div class="cat-name">Sports</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('coding')">
+          <div class="cat-icon">💻</div>
+          <div class="cat-name">Coding</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('english')">
+          <div class="cat-icon">📖</div>
+          <div class="cat-name">English</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        <button class="cat-card" onclick="startQuiz('math')">
+          <div class="cat-icon">📐</div>
+          <div class="cat-name">Mathematics</div>
+          <div class="cat-count">20 questions</div>
+        </button>
+        
+        <!-- Interactive Game & Simulation Cards -->
+        <button class="cat-card game-card" onclick="startBlockGame()">
+          <div class="cat-icon">🤖</div>
+          <div>
+            <div class="cat-name">Robot Coder Challenge</div>
+            <div class="cat-count" style="margin-top: 2px;">Interactive puzzle game</div>
+          </div>
+        </button>
+        <button class="cat-card game-card" onclick="startPhysicsSim()">
+          <div class="cat-icon">🚀</div>
+          <div>
+            <div class="cat-name">Gravity & Velocity Sandbox</div>
+            <div class="cat-count" style="margin-top: 2px;">Physics trajectory simulation</div>
+          </div>
+        </button>
+      </div>
+    </div>
 
-      <section class="feature-section" aria-labelledby="extras-heading">
-        <h2 id="extras-heading">More ways to level up</h2>
-        <div class="features-grid">
-          <article class="feature-card">
-            <span class="category-icon">🤖</span>
-            <h3>Robot Coder</h3>
-            <p>Build a sequence of moves to guide your robot.</p>
-            <button type="button" class="primary-btn" onclick="startBlockGame()">Play puzzle</button>
-          </article>
-          <article class="feature-card">
-            <span class="category-icon">🚀</span>
-            <h3>Physics Lab</h3>
-            <p>Experiment with launch angle and velocity.</p>
-            <button type="button" class="primary-btn" onclick="startPhysicsSim()">Launch simulation</button>
-          </article>
-          <article class="feature-card">
-            <span class="category-icon">📖</span>
-            <h3>Learning Hub</h3>
-            <p>Study short lessons at your own pace.</p>
-            <a class="btn" href="#learning-hub">Explore lessons</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="panel" aria-labelledby="badges-heading">
-        <h2 id="badges-heading">Achievements</h2>
-        <p class="subtitle">Keep learning to unlock new milestones.</p>
-        <div id="badges-container" class="badge-grid">
-          <article class="badge-card"><div class="badge-icon">🌱</div><strong>Getting Started</strong><p>Complete your first quiz.</p></article>
-          <article class="badge-card"><div class="badge-icon">🔥</div><strong>On a Roll</strong><p>Build a daily streak.</p></article>
-          <article class="badge-card"><div class="badge-icon">🧩</div><strong>Problem Solver</strong><p>Finish a coding puzzle.</p></article>
-        </div>
-      </section>
-    </section>
-
-    <!-- QUIZ SCREEN -->
-    <section id="quiz-screen" class="screen">
-      <button type="button" class="back-btn secondary-btn" onclick="goHome()">← Home</button>
-      <div class="quiz-card">
-        <div class="quiz-top">
-          <span id="quiz-category-label" class="muted">Trivia Challenge</span>
-          <span id="question-counter" class="muted">Question 1</span>
-          <span id="quiz-score" class="muted">Score: 0</span>
-        </div>
-        <div class="progress-container" aria-label="Quiz progress">
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+      <div class="header">
+        <button class="back-btn" onclick="goHome()">← Back</button>
+        <div class="progress-bar-container">
           <div id="progress-bar" class="progress-bar"></div>
         </div>
-        <h2 id="question-text">Your question will appear here.</h2>
-        <div id="options-container"></div>
-        <p id="answer-feedback" class="game-message" aria-live="polite"></p>
-        <div class="quiz-footer">
-          <button type="button" id="next-btn" class="primary-btn" onclick="nextQuestion()">Next question →</button>
+      </div>
+      <div id="question-text" class="question"></div>
+      <div id="options-container" class="options-grid"></div>
+      <button id="next-btn" class="primary-btn" style="display:none;" onclick="nextQuestion()">Next Question ➔</button>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="result-screen" class="screen" style="text-align:center;">
+      <div class="trophy-icon">⚡</div>
+      <h2 class="title" style="margin-bottom: 8px;">Challenge Complete!</h2>
+      <div id="final-score" class="score-display"></div>
+      <p id="xp-gained" style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">+0 XP Gained!</p>
+      <button class="primary-btn" onclick="goHome()">Back to Dashboard</button>
+    </div>
+
+    <!-- Block Coding Game Screen -->
+    <div id="block-game-screen" class="screen">
+      <div class="header game-header">
+        <button class="back-btn" onclick="goHome()">← Back</button>
+        <span id="game-level" class="game-level">Level 1</span>
+      </div>
+      <h2 class="game-title">Robot Coder</h2>
+      <p class="game-instructions">Build a program to guide the robot 🤖 to the star ⭐!</p>
+      
+      <div id="game-board" class="game-board"></div>
+
+      <div class="block-heading">Your Program:</div>
+      <div id="program-blocks" class="program-blocks"></div>
+
+      <div class="block-heading">Block Palette:</div>
+      <div class="block-palette">
+        <button class="movement-block" onclick="addCodeBlock('up')">⬆️ Up</button>
+        <button class="movement-block" onclick="addCodeBlock('right')">➡️ Right</button>
+        <button class="movement-block" onclick="addCodeBlock('down')">⬇️ Down</button>
+        <button class="movement-block" onclick="addCodeBlock('left')">⬅️ Left</button>
+      </div>
+
+      <p id="game-message" class="game-message"></p>
+
+      <div class="game-actions">
+        <button id="run-code-btn" class="primary-btn" onclick="runCode()">▶️ Run Program</button>
+        <button id="clear-code-btn" class="secondary-btn" onclick="clearCode()">Clear</button>
+      </div>
+
+      <button id="next-level-btn" class="primary-btn" style="display:none;" onclick="nextGameLevel()">Next level ➔</button>
+    </div>
+
+    <!-- Physics Simulation Screen -->
+    <div id="physics-sim-screen" class="screen">
+      <div class="header game-header">
+        <button class="back-btn" onclick="goHome()">← Back</button>
+        <span class="game-level">Simulation</span>
+      </div>
+      <h2 class="game-title">Gravity & Velocity Sandbox</h2>
+      <p class="game-instructions">Adjust parameters and launch the projectile to hit the target!</p>
+      
+      <div class="sim-canvas-container" style="background: rgba(2, 6, 23, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; height: 180px; position: relative; overflow: hidden; margin-bottom: 14px;">
+        <div id="sim-target" style="position: absolute; right: 30px; bottom: 20px; width: 24px; height: 24px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e;"></div>
+        <div id="sim-projectile" style="position: absolute; left: 20px; bottom: 20px; width: 16px; height: 16px; background: var(--cyan-glow); border-radius: 50%; box-shadow: 0 0 10px var(--cyan-glow);"></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; font-size: 12px;">
+        <div>
+          <label>Angle: <span id="angle-val">45</span>°</label>
+          <input type="range" id="sim-angle" min="10" max="80" value="45" style="width:100%; accent-color: var(--cyan-glow);" oninput="updateSimParams()">
+        </div>
+        <div>
+          <label>Velocity: <span id="vel-val">50</span> m/s</label>
+          <input type="range" id="sim-velocity" min="20" max="90" value="50" style="width:100%; accent-color: var(--cyan-glow);" oninput="updateSimParams()">
         </div>
       </div>
-    </section>
 
-    <!-- RESULTS SCREEN -->
-    <section id="result-screen" class="screen">
-      <div class="result-card">
-        <p class="eyebrow">CHALLENGE COMPLETE</p>
-        <h1><span class="gradient-text">Great effort!</span></h1>
-        <p id="result-message">Here are your results.</p>
-        <div class="stats-grid">
-          <article class="stat-card"><span class="stat-value" id="final-score">0</span><span class="stat-label">Correct answers</span></article>
-          <article class="stat-card"><span class="stat-value" id="final-total">0</span><span class="stat-label">Total questions</span></article>
-          <article class="stat-card"><span class="stat-value" id="final-percent">0%</span><span class="stat-label">Accuracy</span></article>
-          <article class="stat-card"><span class="stat-value" id="xp-earned">+0</span><span class="stat-label">XP earned</span></article>
-        </div>
-        <div class="code-controls">
-          <button type="button" class="primary-btn" onclick="goHome()">Play again</button>
-          <button type="button" class="secondary-btn" onclick="startDailyChallenge()">Daily challenge</button>
-        </div>
+      <p id="sim-message" class="game-message">Adjust settings and hit launch!</p>
+      <button class="primary-btn" onclick="launchSimulation()">🚀 Launch Projectile</button>
+    </div>
+
+  </div>
+
+  <!-- TriviaGo Learning Hub -->
+<button id="open-learning-hub" class="learning-launcher">
+  🧠 Learning Hub
+</button>
+
+<section id="learning-hub" class="learning-overlay" hidden>
+  <div class="learning-panel">
+    <header class="learning-header">
+      <div>
+        <p class="learning-eyebrow">TRIVIAGO • STREAK EDITION</p>
+        <h2>Learning Hub ✨</h2>
+        <p>Play smarter. Learn something every day.</p>
       </div>
-    </section>
+      <button id="close-learning-hub" class="learning-close" aria-label="Close">
+        ✕
+      </button>
+    </header>
 
-    <!-- ROBOT CODER SCREEN -->
-    <section id="block-game-screen" class="screen">
-      <button type="button" class="back-btn secondary-btn" onclick="goHome()">← Home</button>
-      <h1>🤖 Robot <span class="gradient-text">Coder</span></h1>
-      <p class="subtitle">Add movement blocks, then run your program to reach the goal.</p>
-      <div class="game-layout">
-        <section class="game-board-container">
-          <h2>Mission board</h2>
-          <p id="game-level">Level 1</p>
-          <div id="game-board" aria-label="Robot puzzle board"></div>
-          <p id="game-message" class="game-message" aria-live="polite">Build your program to begin.</p>
-          <button type="button" class="secondary-btn" onclick="nextGameLevel()">Next level →</button>
-        </section>
-        <section class="code-panel">
-          <h2>Your program</h2>
-          <p class="muted">Choose commands in the order you want the robot to execute them.</p>
-          <div class="code-controls">
-            <button type="button" onclick="addCodeBlock('up')">⬆ Up</button>
-            <button type="button" onclick="addCodeBlock('right')">➡ Right</button>
-            <button type="button" onclick="addCodeBlock('down')">⬇ Down</button>
-            <button type="button" onclick="addCodeBlock('left')">⬅ Left</button>
-          </div>
-          <div id="code-blocks" class="code-blocks" aria-label="Program commands"></div>
-          <div class="code-controls">
-            <button type="button" class="primary-btn" onclick="runCode()">▶ Run program</button>
-            <button type="button" class="secondary-btn" onclick="clearCode()">Clear</button>
-          </div>
-        </section>
+    <div class="learning-stats">
+      <div class="learning-stat">
+        <span>⚡</span>
+        <strong id="learning-xp">0 XP</strong>
+        <small>Total XP</small>
       </div>
-    </section>
+      <div class="learning-stat">
+        <span>🔥</span>
+        <strong id="learning-streak">0 days</strong>
+        <small>Learning streak</small>
+      </div>
+      <div class="learning-stat">
+        <span>🏅</span>
+        <strong id="learning-badges">0</strong>
+        <small>Badges earned</small>
+      </div>
+    </div>
 
-    <!-- PHYSICS SIMULATION SCREEN -->
-    <section id="physics-sim-screen" class="screen">
-      <button type="button" class="back-btn secondary-btn" onclick="goHome()">← Home</button>
-      <h1>🚀 Physics <span class="gradient-text">Lab</span></h1>
-      <p class="subtitle">Explore how launch angle and initial velocity change a projectile's path.</p>
-      <section class="sim-panel">
-        <div class="sim-controls">
+    <nav class="learning-tabs" aria-label="Learning activities">
+      <button class="learning-tab active" data-tab="brain">🧠 Brain Zone</button>
+      <button class="learning-tab" data-tab="math">🔢 Math Lab</button>
+      <button class="learning-tab" data-tab="words">🔤 Word Play</button>
+      <button class="learning-tab" data-tab="courses">📚 Courses</button>
+      <button class="learning-tab" data-tab="english">✍️ English</button>
+    </nav>
+
+    <div class="learning-content">
+      <section class="learning-page active" id="learning-brain">
+        <div class="learning-section-title">
           <div>
-            <label for="sim-angle">Launch angle: <strong id="angle-val">45</strong>°</label>
-            <input id="sim-angle" type="range" min="5" max="85" value="45" oninput="updateSimParams()">
+            <h3>Brain Zone</h3>
+            <p>Think carefully before revealing the answer!</p>
           </div>
-          <div>
-            <label for="sim-velocity">Initial velocity: <strong id="vel-val">40</strong> m/s</label>
-            <input id="sim-velocity" type="range" min="10" max="80" value="40" oninput="updateSimParams()">
-          </div>
+          <span class="learning-pill">+10 XP</span>
         </div>
-        <div class="sim-canvas-container" aria-label="Projectile motion simulation">
-          <div id="sim-projectile"></div>
-          <div id="sim-target" title="Target"></div>
-        </div>
-        <p id="sim-message" class="game-message" aria-live="polite">Adjust settings and hit launch!</p>
-        <div class="code-controls">
-          <button type="button" class="primary-btn" onclick="launchSimulation()">🚀 Launch</button>
-          <button type="button" class="secondary-btn" onclick="resetSim()">Reset</button>
+
+        <div id="riddle-card" class="learning-challenge"></div>
+
+        <div class="learning-actions">
+          <button id="riddle-answer" class="learning-primary">
+            Reveal answer
+          </button>
+          <button id="next-riddle" class="learning-secondary">
+            Next challenge →
+          </button>
         </div>
       </section>
-    </section>
 
-    <!-- LEARNING HUB -->
-    <section id="learning-hub" class="learning-section">
-      <div class="hero">
-        <p class="eyebrow">GROW YOUR SKILLS</p>
-        <h1>Learning <span class="gradient-text">Hub</span></h1>
-        <p>Short lessons to help you learn programming, physics, maths and more.</p>
-      </div>
-      <div id="learning-courses" class="learning-grid"></div>
-    </section>
-  </main>
+      <section class="learning-page" id="learning-math">
+        <div class="learning-section-title">
+          <div>
+            <h3>Math Lab</h3>
+            <p>Number puzzles and mental-math challenges.</p>
+          </div>
+          <span class="learning-pill">+15 XP</span>
+        </div>
 
-  <footer>
-    <p>TriviaGo Streak Edition · Learn something new every day.</p>
-  </footer>
+        <div id="math-card" class="learning-challenge"></div>
+
+        <form id="math-form" class="learning-form">
+          <label for="math-answer-input">Your answer</label>
+          <input id="math-answer-input" autocomplete="off"
+            placeholder="Type your answer..." required>
+          <button class="learning-primary" type="submit">Check answer</button>
+        </form>
+        <p id="math-feedback" class="learning-feedback" aria-live="polite"></p>
+        <button id="next-math" class="learning-secondary">
+          Next puzzle →
+        </button>
+      </section>
+
+      <section class="learning-page" id="learning-words">
+        <div class="learning-section-title">
+          <div>
+            <h3>Word Play</h3>
+            <p>Unscramble the letters to discover the word.</p>
+          </div>
+          <span class="learning-pill">+10 XP</span>
+        </div>
+
+        <div id="word-card" class="learning-challenge"></div>
+
+        <form id="word-form" class="learning-form">
+          <label for="word-answer-input">Unscrambled word</label>
+          <input id="word-answer-input" autocomplete="off"
+            placeholder="Enter the word..." required>
+          <button class="learning-primary" type="submit">Check word</button>
+        </form>
+        <p id="word-feedback" class="learning-feedback" aria-live="polite"></p>
+        <button id="next-word" class="learning-secondary">
+          Another word →
+        </button>
+
+        <div class="daily-word-card">
+          <p class="learning-eyebrow">WORD OF THE DAY</p>
+          <h3 id="daily-word"></h3>
+          <p id="daily-definition"></p>
+          <p id="daily-example" class="daily-example"></p>
+          <button id="learn-word" class="learning-primary">
+            I learned this word
+          </button>
+        </div>
+      </section>
+
+      <section class="learning-page" id="learning-courses">
+        <div class="learning-section-title">
+          <div>
+            <h3>Mini Courses</h3>
+            <p>Small lessons you can complete at your own pace.</p>
+          </div>
+        </div>
+        <div id="course-list" class="course-grid"></div>
+        <div id="course-lesson" class="course-lesson" hidden></div>
+      </section>
+
+      <section class="learning-page" id="learning-english">
+        <div class="learning-section-title">
+          <div>
+            <h3>English Corner</h3>
+            <p>A little inspiration and language practice every day.</p>
+          </div>
+        </div>
+
+        <article class="quote-card">
+          <p class="learning-eyebrow">QUOTE OF THE DAY</p>
+          <blockquote id="daily-quote"></blockquote>
+          <p id="quote-author"></p>
+        </article>
+
+        <article class="poem-card">
+          <p class="learning-eyebrow">A LITTLE POEM</p>
+          <h3 id="poem-title"></h3>
+          <p id="daily-poem" class="poem-lines"></p>
+        </article>
+
+        <div class="grammar-card">
+          <p class="learning-eyebrow">GRAMMAR QUICK TIP</p>
+          <h3 id="grammar-title"></h3>
+          <p id="grammar-tip"></p>
+          <p id="grammar-example" class="daily-example"></p>
+          <button id="next-grammar" class="learning-secondary">
+            Another grammar tip →
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <p class="learning-footer">
+      Keep exploring. Every small lesson counts. 💙
+    </p>
+  </div>
+</section>
 
   <script src="script.js"></script>
   <script src="learning.js"></script>
