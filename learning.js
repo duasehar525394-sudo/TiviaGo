@@ -319,7 +319,7 @@
       id: "vocabulary",
       icon: "🔤",
       title: "Vocabulary Builder",
-      level: "Beginner",
+      level: "Beginner → Advanced",
       description: "Learn word meanings, synonyms, and better ways to express ideas.",
       lessons: [
         {
@@ -354,7 +354,7 @@
       id: "math",
       icon: "➗",
       title: "Math & Number Sense",
-      level: "Beginner",
+      level: "Beginner → Advanced",
       description: "Practise percentages, number patterns, logic, and mental maths.",
       lessons: [
         {
@@ -389,7 +389,7 @@
       id: "science",
       icon: "🔬",
       title: "Science Explorer",
-      level: "Beginner",
+      level: "Beginner → Advanced",
       description: "Explore scientific thinking, energy, matter, and living systems.",
       lessons: [
         {
@@ -424,7 +424,7 @@
       id: "english",
       icon: "✍️",
       title: "English & Grammar",
-      level: "Beginner",
+      level: "Beginner → Advanced",
       description: "Improve sentence structure, grammar, reading, and writing.",
       lessons: [
         {
@@ -464,7 +464,7 @@
       id: "coding",
       icon: "💻",
       title: "Coding Fundamentals",
-      level: "Beginner",
+      level: "Beginner → Advanced",
       description: "Understand variables, conditions, loops, and problem-solving.",
       lessons: [
         {
@@ -499,7 +499,7 @@
       id: "logic",
       icon: "🧩",
       title: "Logic & Critical Thinking",
-      level: "Beginner",
+      level: "Beginner → Advanced",
       description: "Recognise assumptions, evaluate evidence, and solve problems step by step.",
       lessons: [
         {
@@ -539,14 +539,204 @@
           explanation: "Smaller steps help you understand and solve a complex problem."
         }
       ]
+    },
+    {
+      id: "web-design",
+      icon: "🌐",
+      title: "HTML & Web Design",
+      level: "Beginner → Advanced",
+      description: "Build accessible pages, style layouts, and learn responsive web design.",
+      lessons: [
+        {
+          title: "Structure a web page",
+          body: "HTML describes the content and structure of a web page using elements.",
+          points: ["Put page metadata in the head.", "Keep visible content in the body.", "Use headings in a logical order."],
+          question: "Which element contains the visible content of a page?",
+          options: ["<head>", "<body>", "<meta>", "<title>"],
+          answer: 1,
+          explanation: "The body element contains the content displayed in the browser."
+        },
+        {
+          title: "Add accessible images",
+          body: "Useful text alternatives make image content available to people who cannot see it.",
+          points: ["Describe meaningful images in alt text.", "Use empty alt text for decorative images.", "Write link names that explain their destination."],
+          question: "Which attribute provides an image's text alternative?",
+          options: ["href", "alt", "class", "target"],
+          answer: 1,
+          explanation: "The alt attribute provides a text alternative for an image."
+        },
+        {
+          title: "Responsive layouts",
+          body: "Responsive design helps content fit different screen sizes and devices.",
+          points: ["Use flexible grid or flex layouts.", "Use media queries when a layout needs to change.", "Test pages at narrow and wide viewport sizes."],
+          question: "Which CSS feature applies styles based on viewport conditions?",
+          options: ["A media query", "An HTML comment", "A database query", "A keyframe"],
+          answer: 0,
+          explanation: "Media queries apply CSS rules when conditions such as viewport width match."
+        },
+        {
+          title: "CSS layout and the box model",
+          body: "The box model explains how content, padding, borders, and margins affect an element's size.",
+          points: ["Padding sits between content and border.", "Margin creates space outside the border.", "Grid and flexbox provide modern layout tools."],
+          question: "Which CSS property adds space outside an element's border?",
+          options: ["padding", "margin", "gap", "outline"],
+          answer: 1,
+          explanation: "Margin creates space outside an element's border."
+        }
+      ]
     }
   ];
+
+  const progressionLessons = {
+    vocabulary: [
+      {
+        title: "Use context clues",
+        body: "Nearby words and sentences can help you infer an unfamiliar word's meaning.",
+        points: ["Look for examples and contrasts.", "Check the word's tone.", "Confirm your guess with a trusted dictionary."],
+        question: "In 'The path was arduous, so we rested often,' what does arduous most likely mean?",
+        options: ["Easy", "Difficult", "Short", "Quiet"],
+        answer: 1,
+        explanation: "Resting often suggests the path was difficult."
+      },
+      {
+        title: "Choose precise language",
+        body: "Advanced writing uses specific words that match the intended meaning and tone.",
+        points: ["Prefer precise verbs over vague phrases.", "Check a word's connotations.", "Revise repeated or unnecessary words."],
+        question: "Which verb most precisely completes 'The scientist ___ the results'?",
+        options: ["Did", "Looked at", "Analyzed", "Got"],
+        answer: 2,
+        explanation: "Analyzed precisely describes examining results in detail."
+      }
+    ],
+    math: [
+      {
+        title: "Ratios and proportions",
+        body: "A ratio compares quantities, and equivalent ratios preserve the same relationship.",
+        points: ["Write ratios in a consistent order.", "Scale both parts by the same factor.", "Use proportions to solve for an unknown."],
+        question: "If 2 notebooks cost $6, how much do 5 notebooks cost at the same rate?",
+        options: ["$12", "$15", "$18", "$30"],
+        answer: 1,
+        explanation: "Each notebook costs $3, so five cost $15."
+      },
+      {
+        title: "Linear relationships",
+        body: "A linear equation represents a relationship with a constant rate of change.",
+        points: ["The slope measures change in y per unit change in x.", "The y-intercept is the value when x is zero.", "Substitute values to check a solution."],
+        question: "For y = 3x + 2, what is y when x = 4?",
+        options: ["10", "12", "14", "18"],
+        answer: 2,
+        explanation: "Substituting x = 4 gives y = 3(4) + 2 = 14."
+      }
+    ],
+    science: [
+      {
+        title: "Ecosystems and energy",
+        body: "Energy moves through ecosystems as organisms eat or are eaten.",
+        points: ["Producers capture energy, often from sunlight.", "Consumers obtain energy by eating other organisms.", "Decomposers recycle nutrients."],
+        question: "Which organisms usually form the base of a food chain?",
+        options: ["Producers", "Top predators", "Decomposers only", "Parasites"],
+        answer: 0,
+        explanation: "Producers capture energy and support the rest of the food chain."
+      },
+      {
+        title: "Evaluate an experiment",
+        body: "A fair experiment changes one factor at a time and measures outcomes consistently.",
+        points: ["Identify the independent variable.", "Keep other conditions controlled.", "Repeat measurements to improve confidence."],
+        question: "What should a controlled experiment change deliberately?",
+        options: ["Every variable", "One independent variable", "The conclusion", "The recorded data"],
+        answer: 1,
+        explanation: "Changing one independent variable helps test its effect."
+      }
+    ],
+    english: [
+      {
+        title: "Build a clear paragraph",
+        body: "A well-structured paragraph develops one main idea with relevant support.",
+        points: ["Open with a clear topic sentence.", "Support the point with evidence or examples.", "Use transitions to connect ideas."],
+        question: "What is the main purpose of a topic sentence?",
+        options: ["Introduce the paragraph's main idea", "List every source", "End the whole essay", "Replace all supporting details"],
+        answer: 0,
+        explanation: "A topic sentence introduces the paragraph's main idea."
+      },
+      {
+        title: "Punctuation and meaning",
+        body: "Punctuation guides readers through sentence structure and can change meaning.",
+        points: ["Use commas to separate introductory phrases.", "Use apostrophes for possession or contractions.", "Use a colon to introduce a list after a complete clause."],
+        question: "Which sentence uses a colon correctly?",
+        options: ["Bring: a notebook.", "I need three things: paper, a pen, and a ruler.", "The: answer is correct.", "We: walked to school."],
+        answer: 1,
+        explanation: "A colon can introduce a list after a complete clause."
+      }
+    ],
+    coding: [
+      {
+        title: "Repeat work with loops",
+        body: "Loops run a block of code repeatedly while a condition or collection requires it.",
+        points: ["Use for loops to process collections.", "Make sure loop conditions eventually stop.", "Choose a loop that matches the task."],
+        question: "Which loop is commonly used to visit every item in an array?",
+        options: ["for...of", "if...else", "try...catch", "switch"],
+        answer: 0,
+        explanation: "A for...of loop iterates over values in an iterable such as an array."
+      },
+      {
+        title: "Work with web APIs",
+        body: "An API lets programs exchange data through a defined interface.",
+        points: ["Check response status before using data.", "Handle asynchronous work with promises or async/await.", "Validate data before trusting its shape."],
+        question: "Which JavaScript keyword lets a function use await?",
+        options: ["async", "defer", "yield", "static"],
+        answer: 0,
+        explanation: "An async function can use await to pause for a promise."
+      }
+    ],
+    logic: [
+      {
+        title: "Check an argument",
+        body: "An argument connects evidence to a conclusion through one or more reasons.",
+        points: ["Identify the claim and supporting reasons.", "Check whether evidence is relevant.", "Look for unsupported assumptions."],
+        question: "What should you check when evaluating a factual claim?",
+        options: ["Whether reliable evidence supports it", "Whether it is popular", "Whether it sounds dramatic", "Whether it is repeated often"],
+        answer: 0,
+        explanation: "Reliable, relevant evidence is a sound starting point."
+      },
+      {
+        title: "Compare possible solutions",
+        body: "Good problem solving compares options against clear goals and constraints.",
+        points: ["Define what success means.", "List constraints and trade-offs.", "Compare evidence before choosing."],
+        question: "Why define constraints before choosing a solution?",
+        options: ["To rule out options that cannot work", "To avoid collecting information", "To guarantee there is only one option", "To make the problem harder"],
+        answer: 0,
+        explanation: "Constraints help identify which solutions are practical."
+      }
+    ],
+    "web-design": [
+      {
+        title: "Semantic page structure",
+        body: "Semantic HTML describes content roles so browsers and assistive technologies can understand a page.",
+        points: ["Use header, nav, main, and footer for page regions.", "Choose elements for meaning, not appearance.", "Keep headings in a logical order."],
+        question: "Which element identifies the primary content of a page?",
+        options: ["<main>", "<aside>", "<small>", "<label>"],
+        answer: 0,
+        explanation: "The main element identifies the primary content."
+      },
+      {
+        title: "Create a responsive grid",
+        body: "CSS Grid can create flexible columns that adapt as available space changes.",
+        points: ["Use minmax() to set flexible column sizes.", "Use auto-fit or auto-fill for responsive columns.", "Keep content readable on narrow screens."],
+        question: "Which CSS function sets a minimum and maximum track size?",
+        options: ["clamp()", "minmax()", "calcsize()", "fitcontent()"],
+        answer: 1,
+        explanation: "minmax() defines a track's minimum and maximum sizes."
+      }
+    ]
+  };
+
+  courses.forEach((course) => {
+    course.lessons.push(...progressionLessons[course.id]);
+  });
 
   function freshProgress() {
     return {
       xp: 0,
-      streak: 0,
-      lastActive: "",
       badges: [],
       completed: [],
       learnedWords: [],
@@ -560,9 +750,16 @@
   function loadProgress() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-      return saved && typeof saved === "object"
-        ? { ...freshProgress(), ...saved }
-        : freshProgress();
+      if (!saved || typeof saved !== "object") return freshProgress();
+      const currentProgress = { ...saved };
+      delete currentProgress.streak;
+      delete currentProgress.lastActive;
+      currentProgress.badges = Array.isArray(currentProgress.badges)
+        ? currentProgress.badges.filter((badge) =>
+          badge !== "Three-Day Streak" && badge !== "Weekly Learner"
+        )
+        : [];
+      return { ...freshProgress(), ...currentProgress };
     } catch {
       return freshProgress();
     }
@@ -587,32 +784,7 @@
     renderStats();
   }
 
-  function updateStreak() {
-    const date = today();
-
-    if (progress.lastActive === date) return;
-
-    if (!progress.lastActive) {
-      progress.streak = 1;
-    } else {
-      const previous = new Date(progress.lastActive + "T12:00:00");
-      const current = new Date(date + "T12:00:00");
-      const daysBetween = Math.round(
-        (current - previous) / 86400000
-      );
-
-      if (daysBetween === 1) {
-        progress.streak += 1;
-      } else if (daysBetween > 1) {
-        progress.streak = 1;
-      }
-    }
-
-    progress.lastActive = date;
-  }
-
   function awardXP(amount) {
-    updateStreak();
     progress.xp += amount;
 
     if (progress.xp >= 50 && !progress.badges.includes("Getting Started")) {
@@ -623,22 +795,13 @@
       progress.badges.push("Brain Builder");
     }
 
-    if (progress.streak >= 3 && !progress.badges.includes("Three-Day Streak")) {
-      progress.badges.push("Three-Day Streak");
-    }
-
-    if (progress.streak >= 7 && !progress.badges.includes("Weekly Learner")) {
-      progress.badges.push("Weekly Learner");
-    }
-
     saveProgress();
   }
 
   function renderStats() {
     if ($("learning-xp")) $("learning-xp").textContent = progress.xp + " XP";
-    if ($("learning-streak")) {
-      $("learning-streak").textContent = progress.streak + " days";
-    }
+    if ($("learning-lessons")) $("learning-lessons").textContent = progress.completed.length;
+    if ($("learning-lessons")) $("learning-lessons").textContent = progress.completed.length;
     if ($("learning-badges")) {
       $("learning-badges").textContent = progress.badges.length;
     }
@@ -904,6 +1067,12 @@
     const container = $("course-lesson");
     container.innerHTML = "";
 
+    const level = document.createElement("p");
+    level.className = "lesson-level";
+    level.textContent = selectedLesson < 2
+      ? "BEGINNER"
+      : selectedLesson === 2 ? "INTERMEDIATE" : "ADVANCED";
+
     const heading = document.createElement("h3");
     heading.textContent = selectedCourse.icon + " " + lesson.title;
 
@@ -1008,7 +1177,7 @@
       }
     });
 
-    container.append(heading, body, points, question, options, feedback, nextButton);
+    container.append(level, heading, body, points, question, options, feedback, nextButton);
   }
 
   function switchTab(tabName) {

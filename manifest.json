@@ -1,7 +1,7 @@
 {
   "name": "TriviaGo",
   "short_name": "TriviaGo",
-  "description": "Ultimate trivia quiz app across multiple subjects",
+  "description": "Interactive learning hub with quizzes, courses, and mini-games across multiple subjects",
   "start_url": "/TiviaGo/",
   "display": "standalone",
   "background_color": "#8A2BE2",

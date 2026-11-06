@@ -177,24 +177,144 @@ const quizData = {
   ]
 };
 
-let currentCategory = [];
+const quizLevelData = {
+  science: {
+    intermediate: [
+      { question: "Which process allows plants to release water vapour through their leaves?", options: ["Respiration", "Transpiration", "Fermentation", "Condensation"], answer: "Transpiration" },
+      { question: "What is the SI unit of electrical resistance?", options: ["Volt", "Ampere", "Ohm", "Watt"], answer: "Ohm" },
+      { question: "Which part of a cell contains most of its genetic material?", options: ["Nucleus", "Cell wall", "Ribosome", "Vacuole"], answer: "Nucleus" }
+    ],
+    advanced: [
+      { question: "What is the name for a substance that speeds up a chemical reaction without being used up?", options: ["Solvent", "Catalyst", "Isotope", "Reactant"], answer: "Catalyst" },
+      { question: "Which principle states that energy cannot be created or destroyed?", options: ["Conservation of energy", "Natural selection", "Uncertainty principle", "Archimedes' principle"], answer: "Conservation of energy" },
+      { question: "What is the pH of a neutral solution at room temperature?", options: ["1", "5", "7", "14"], answer: "7" }
+    ]
+  },
+  gk: {
+    intermediate: [
+      { question: "Which organisation publishes the annual Human Development Report?", options: ["UNDP", "WHO", "UNESCO", "WTO"], answer: "UNDP" },
+      { question: "What is the smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" },
+      { question: "Which instrument measures atmospheric pressure?", options: ["Barometer", "Hygrometer", "Caliper", "Altimeter"], answer: "Barometer" }
+    ],
+    advanced: [
+      { question: "Which element has the chemical symbol W?", options: ["Tungsten", "Tin", "Tantalum", "Titanium"], answer: "Tungsten" },
+      { question: "What is the SI base unit of luminous intensity?", options: ["Lumen", "Lux", "Candela", "Watt"], answer: "Candela" },
+      { question: "Which language has the greatest number of native speakers worldwide?", options: ["English", "Mandarin Chinese", "Spanish", "Hindi"], answer: "Mandarin Chinese" }
+    ]
+  },
+  geography: {
+    intermediate: [
+      { question: "Which imaginary line is at 0° longitude?", options: ["Equator", "Prime Meridian", "Tropic of Cancer", "International Date Line"], answer: "Prime Meridian" },
+      { question: "Which river flows through Baghdad?", options: ["Euphrates", "Tigris", "Jordan", "Indus"], answer: "Tigris" },
+      { question: "Which country is entirely surrounded by South Africa?", options: ["Eswatini", "Lesotho", "Botswana", "Namibia"], answer: "Lesotho" }
+    ],
+    advanced: [
+      { question: "What is the world's deepest known ocean trench?", options: ["Java Trench", "Tonga Trench", "Mariana Trench", "Puerto Rico Trench"], answer: "Mariana Trench" },
+      { question: "Which strait separates Asia and North America?", options: ["Gibraltar Strait", "Bering Strait", "Dover Strait", "Malacca Strait"], answer: "Bering Strait" },
+      { question: "Which is the largest landlocked country by area?", options: ["Mongolia", "Chad", "Kazakhstan", "Bolivia"], answer: "Kazakhstan" }
+    ]
+  },
+  history: {
+    intermediate: [
+      { question: "Which ancient writing system used wedge-shaped marks on clay tablets?", options: ["Cuneiform", "Hieroglyphics", "Linear B", "Runes"], answer: "Cuneiform" },
+      { question: "The Silk Road connected China with which broad region?", options: ["Northern Europe", "The Mediterranean world", "Southern Africa", "The Americas"], answer: "The Mediterranean world" },
+      { question: "In which year was the United Nations founded?", options: ["1919", "1939", "1945", "1955"], answer: "1945" }
+    ],
+    advanced: [
+      { question: "Which 1648 settlement is commonly associated with the end of the Thirty Years' War?", options: ["Treaty of Versailles", "Peace of Westphalia", "Congress of Vienna", "Treaty of Utrecht"], answer: "Peace of Westphalia" },
+      { question: "Who was the first woman to serve as prime minister of the United Kingdom?", options: ["Theresa May", "Margaret Thatcher", "Barbara Castle", "Mary Robinson"], answer: "Margaret Thatcher" },
+      { question: "The Meiji Restoration began in which country?", options: ["China", "Japan", "Korea", "Thailand"], answer: "Japan" }
+    ]
+  },
+  sports: {
+    intermediate: [
+      { question: "How many points is a try worth in modern rugby union before a conversion?", options: ["3", "5", "6", "7"], answer: "5" },
+      { question: "In cricket, how many legal deliveries are in a standard over?", options: ["4", "5", "6", "8"], answer: "6" },
+      { question: "Which country won the first men's Rugby World Cup in 1987?", options: ["England", "Australia", "New Zealand", "South Africa"], answer: "New Zealand" }
+    ],
+    advanced: [
+      { question: "What is the maximum standard break in snooker?", options: ["147", "155", "180", "200"], answer: "147" },
+      { question: "In which athletics event is the Fosbury Flop technique used?", options: ["Pole vault", "High jump", "Long jump", "Triple jump"], answer: "High jump" },
+      { question: "How many events make up a decathlon?", options: ["7", "8", "10", "12"], answer: "10" }
+    ]
+  },
+  coding: {
+    intermediate: [
+      { question: "Which CSS selector targets elements with the class name 'card'?", options: ["#card", ".card", "card()", "*card"], answer: ".card" },
+      { question: "Which array method creates a new array by transforming each item?", options: ["map()", "push()", "findIndex()", "splice()"], answer: "map()" },
+      { question: "Which HTML element is intended for a page's main content?", options: ["<main>", "<sectioning>", "<content>", "<body-main>"], answer: "<main>" }
+    ],
+    advanced: [
+      { question: "What does the CSS declaration 'display: grid' enable?", options: ["A two-dimensional layout system", "A database grid", "A fixed-width font", "An image filter"], answer: "A two-dimensional layout system" },
+      { question: "What does Promise.all() do when one input promise rejects?", options: ["Waits forever", "Rejects with that failure", "Turns it into null", "Retries every promise"], answer: "Rejects with that failure" },
+      { question: "Which HTTP status code usually means a request was successful?", options: ["301", "403", "200", "500"], answer: "200" }
+    ]
+  },
+  english: {
+    intermediate: [
+      { question: "Which sentence uses the semicolon correctly?", options: ["I studied; and I passed.", "I studied; I passed the exam.", "I; studied for the exam.", "I studied the; exam."], answer: "I studied; I passed the exam." },
+      { question: "What is the past participle of 'choose'?", options: ["Choosed", "Chose", "Chosen", "Choosing"], answer: "Chosen" },
+      { question: "Which word is a conjunction in 'Although it rained, we walked'?", options: ["Rained", "Although", "Walked", "We"], answer: "Although" }
+    ],
+    advanced: [
+      { question: "What is the term for a word that imitates a sound, such as 'buzz'?", options: ["Metaphor", "Onomatopoeia", "Alliteration", "Euphemism"], answer: "Onomatopoeia" },
+      { question: "Which clause type can stand alone as a complete sentence?", options: ["Dependent clause", "Relative clause", "Independent clause", "Adverbial clause"], answer: "Independent clause" },
+      { question: "What is the literary term for a reference to another work or event?", options: ["Allusion", "Irony", "Hyperbole", "Paradox"], answer: "Allusion" }
+    ]
+  },
+  math: {
+    intermediate: [
+      { question: "Solve for x: 3x + 5 = 20.", options: ["3", "5", "7", "15"], answer: "5" },
+      { question: "What is the median of 3, 8, 10, 12, 17?", options: ["8", "10", "11", "12"], answer: "10" },
+      { question: "A fair die is rolled. What is the probability of rolling an even number?", options: ["1/6", "1/3", "1/2", "2/3"], answer: "1/2" }
+    ],
+    advanced: [
+      { question: "What is the derivative of x² with respect to x?", options: ["x", "2x", "x³", "2"], answer: "2x" },
+      { question: "What is the sum of the interior angles of a hexagon?", options: ["540°", "600°", "720°", "900°"], answer: "720°" },
+      { question: "If log₁₀(1000) = x, what is x?", options: ["2", "3", "10", "100"], answer: "3" }
+    ]
+  }
+};
+
 let currentQuestionIndex = 0;
 let score = 0;
+let currentDifficulty = "beginner";
+let currentCategoryKey = "";
+let currentStageIndex = 0;
+let currentCategory = [];
+let currentStageQuestions = [];
+const STAGE_SIZE = 5;
 const QUIZ_XP_KEY = "triviagoQuizXPv1";
+const QUIZ_STAGE_KEY = "triviagoQuizStagesV1";
 let userXP = 0;
+let completedStages = [];
 try {
   userXP = Math.max(0, Number(localStorage.getItem(QUIZ_XP_KEY)) || 0);
 } catch (error) {
-  userXP = 0;
+  console.warn('Quiz XP could not be loaded.', error);
+}
+try {
+  const savedStages = JSON.parse(localStorage.getItem(QUIZ_STAGE_KEY));
+  completedStages = Array.isArray(savedStages) ? savedStages : [];
+} catch (error) {
+  console.warn('Quiz stage progress could not be loaded.', error);
 }
 let currentGameLevel = 0;
 let gameProgram = [];
 let isRunningCode = false;
+let memoryLevel = 0;
+let memoryCards = [];
+let memoryOpenCards = [];
+let memoryMatches = 0;
+let memoryLocked = false;
 
 const gameLevels = [
   { start: [0, 0], goal: [2, 1], walls: [] },
   { start: [0, 0], goal: [3, 2], walls: [[1, 0], [1, 1]] },
-  { start: [0, 0], goal: [4, 4], walls: [[1, 1], [2, 1], [3, 1], [3, 3]] }
+  { start: [0, 0], goal: [4, 4], walls: [[1, 1], [2, 1], [3, 1], [3, 3]] },
+  { start: [0, 0], goal: [2, 4], walls: [[1, 1], [2, 1], [3, 1]] },
+  { start: [0, 0], goal: [3, 4], walls: [[1, 2], [2, 2], [3, 2]] },
+  { start: [0, 0], goal: [4, 4], walls: [[1, 0], [1, 1], [1, 2], [3, 2], [3, 3]] }
 ];
 
 const moveOffsets = {
@@ -212,10 +332,13 @@ const moveLabels = {
 };
 
 const categoryScreen = document.getElementById('category-screen');
+const stageScreen = document.getElementById('stage-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 const blockGameScreen = document.getElementById('block-game-screen');
 const physicsSimScreen = document.getElementById('physics-sim-screen');
+const memoryGameScreen = document.getElementById('memory-game-screen');
+const leaveQuizDialog = document.getElementById('leave-quiz-dialog');
 
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
@@ -223,9 +346,108 @@ const nextBtn = document.getElementById('next-btn');
 const progressBar = document.getElementById('progress-bar');
 
 function startQuiz(categoryKey) {
-  currentCategory = quizData[categoryKey] || quizData['science'];
+  const difficultyControl = document.getElementById('quiz-level');
+  currentDifficulty = difficultyControl ? difficultyControl.value : 'beginner';
+  const categoryQuestions = quizData[categoryKey];
+  if (!categoryQuestions) {
+    throw new Error(`Unknown quiz subject: ${categoryKey}`);
+  }
+  currentCategoryKey = categoryKey;
+  currentCategory = currentDifficulty === 'beginner'
+    ? [...categoryQuestions]
+    : [...categoryQuestions, ...quizLevelData[categoryKey][currentDifficulty]];
+  renderStages();
+  switchScreen(stageScreen);
+}
+
+function getStageCount() {
+  return Math.ceil(currentCategory.length / STAGE_SIZE);
+}
+
+function stageProgressKey(stageIndex) {
+  return `${currentDifficulty}:${currentCategoryKey}:${stageIndex}`;
+}
+
+function renderStages() {
+  const labels = {
+    science: "Science",
+    gk: "General Knowledge",
+    geography: "Geography",
+    history: "History",
+    sports: "Sports",
+    coding: "Coding",
+    english: "English",
+    math: "Mathematics"
+  };
+  const titles = ["Foundations", "Core Practice", "Skill Builder", "Challenge", "Mastery"];
+  const descriptions = [
+    "Start with the essential ideas.",
+    "Strengthen what you have learned.",
+    "Apply your knowledge to new questions.",
+    "Take on a more demanding set.",
+    "Finish with the subject's toughest questions."
+  ];
+  const stageList = document.getElementById('stage-list');
+  const stageCount = getStageCount();
+
+  document.getElementById('stage-title').textContent = `${labels[currentCategoryKey]} learning path`;
+  document.getElementById('stage-description').textContent =
+    `${currentDifficulty[0].toUpperCase() + currentDifficulty.slice(1)} · ${currentCategory.length} questions in ${stageCount} short stages`;
+  stageList.innerHTML = '';
+
+  for (let index = 0; index < stageCount; index++) {
+    const stageKey = stageProgressKey(index);
+    const completed = completedStages.includes(stageKey);
+    const locked = index > 0 && !completedStages.includes(stageProgressKey(index - 1));
+    const questionCount = Math.min(STAGE_SIZE, currentCategory.length - index * STAGE_SIZE);
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = `stage-card${completed ? ' completed' : ''}${locked ? ' locked' : ''}`;
+    card.disabled = locked;
+
+    const number = document.createElement('span');
+    number.className = 'stage-number';
+    number.textContent = completed ? '✓' : locked ? '🔒' : String(index + 1).padStart(2, '0');
+
+    const details = document.createElement('span');
+    details.className = 'stage-details';
+
+    const title = document.createElement('strong');
+    title.textContent = `Stage ${index + 1} · ${titles[index] || `Level ${index + 1}`}`;
+
+    const description = document.createElement('small');
+    description.textContent = `${descriptions[index] || 'Keep progressing through the subject.'} · ${questionCount} questions`;
+    details.append(title, description);
+
+    const status = document.createElement('span');
+    status.className = 'stage-status';
+    status.textContent = completed ? 'Completed' : locked ? 'Locked' : 'Start →';
+
+    card.append(number, details, status);
+    if (!locked) card.addEventListener('click', () => startStage(index));
+    stageList.appendChild(card);
+  }
+}
+
+function showStages() {
+  renderStages();
+  switchScreen(stageScreen);
+}
+
+function startStage(stageIndex) {
+  const stageCount = getStageCount();
+  const unlocked = stageIndex === 0 || completedStages.includes(stageProgressKey(stageIndex - 1));
+  if (!unlocked || stageIndex < 0 || stageIndex >= stageCount) return;
+
+  currentStageIndex = stageIndex;
+  currentStageQuestions = currentCategory.slice(
+    stageIndex * STAGE_SIZE,
+    (stageIndex + 1) * STAGE_SIZE
+  );
   currentQuestionIndex = 0;
   score = 0;
+  document.getElementById('quiz-stage-label').textContent =
+    `Stage ${stageIndex + 1} of ${stageCount}`;
 
   switchScreen(quizScreen);
   loadQuestion();
@@ -233,9 +455,9 @@ function startQuiz(categoryKey) {
 
 function loadQuestion() {
   resetState();
-  let currentQuiz = currentCategory[currentQuestionIndex];
-  
-  const progressPercent = ((currentQuestionIndex) / currentCategory.length) * 100;
+  const currentQuiz = currentStageQuestions[currentQuestionIndex];
+
+  const progressPercent = ((currentQuestionIndex) / currentStageQuestions.length) * 100;
   progressBar.style.width = `${progressPercent}%`;
 
   questionText.innerText = `${currentQuestionIndex + 1}. ${currentQuiz.question}`;
@@ -272,7 +494,7 @@ function selectOption(button, selected, correct) {
 
 function nextQuestion() {
   currentQuestionIndex++;
-  if (currentQuestionIndex < currentCategory.length) {
+  if (currentQuestionIndex < currentStageQuestions.length) {
     loadQuestion();
   } else {
     showResults();
@@ -280,14 +502,60 @@ function nextQuestion() {
 }
 
 function showResults() {
-  const xpEarned = score * 50;
-  userXP += xpEarned;
-  try { localStorage.setItem(QUIZ_XP_KEY, String(userXP)); } catch (error) { /* Storage may be unavailable. */ }
+  const requiredScore = Math.ceil(currentStageQuestions.length * 0.6);
+  const key = stageProgressKey(currentStageIndex);
+  const passed = score >= requiredScore;
+  const previouslyCompleted = completedStages.includes(key);
+  const stageCompleted = passed || previouslyCompleted;
+  const xpEarned = passed && !previouslyCompleted
+    ? score * (currentDifficulty === 'advanced' ? 100 : currentDifficulty === 'intermediate' ? 75 : 50)
+    : 0;
+
+  if (passed && !previouslyCompleted) {
+    completedStages.push(key);
+    try {
+      localStorage.setItem(QUIZ_STAGE_KEY, JSON.stringify(completedStages));
+    } catch (error) {
+      console.warn('Quiz stage progress could not be saved.', error);
+    }
+  }
+
+  if (xpEarned > 0) addQuizXP(xpEarned);
+  progressBar.style.width = '100%';
+  document.querySelector('#result-screen .title').textContent =
+    stageCompleted ? 'Stage complete!' : 'Keep practicing';
+  document.getElementById('final-score').innerText =
+    `You scored ${score} / ${currentStageQuestions.length}` +
+    (stageCompleted ? '' : ` · ${requiredScore} needed to pass`);
+  document.getElementById('xp-gained').innerText = xpEarned > 0
+    ? `+${xpEarned} XP earned`
+    : previouslyCompleted
+      ? 'Stage already completed · replay for practice'
+      : 'Pass this stage to unlock the next one';
+
+  const hasNextStage = currentStageIndex < getStageCount() - 1;
+  document.getElementById('next-stage-btn').style.display =
+    stageCompleted && hasNextStage ? 'block' : 'none';
+  document.getElementById('retry-stage-btn').style.display =
+    stageCompleted ? 'none' : 'block';
+  document.getElementById('choose-stage-btn').textContent =
+    stageCompleted ? 'Choose a Stage' : 'Choose Another Stage';
+  switchScreen(resultScreen);
+}
+
+function startNextStage() {
+  startStage(currentStageIndex + 1);
+}
+
+function addQuizXP(amount) {
+  userXP += amount;
+  try {
+    localStorage.setItem(QUIZ_XP_KEY, String(userXP));
+  } catch (error) {
+    console.warn('Quiz XP could not be saved.', error);
+  }
   const xpCount = document.getElementById('xp-count');
   if (xpCount) xpCount.innerText = userXP.toLocaleString();
-  document.getElementById('final-score').innerText = `You scored ${score} / ${currentCategory.length}`;
-  document.getElementById('xp-gained').innerText = `+${xpEarned} XP Gained!`;
-  switchScreen(resultScreen);
 }
 
 // Robot Coder Simulation Game
@@ -420,6 +688,98 @@ function nextGameLevel() {
   renderGame();
 }
 
+const memoryLevelCards = [
+  ['🌟', '🚀', '🌙', '🪐'],
+  ['🌟', '🚀', '🌙', '🪐', '🌈', '⚡'],
+  ['🌟', '🚀', '🌙', '🪐', '🌈', '⚡', '🎯', '🎨']
+];
+
+function startMemoryGame() {
+  memoryLevel = 0;
+  resetMemoryLevel();
+  switchScreen(memoryGameScreen);
+}
+
+function resetMemoryLevel() {
+  const symbols = memoryLevelCards[memoryLevel];
+  memoryCards = [...symbols, ...symbols]
+    .map((symbol) => ({ symbol, matched: false }));
+  for (let index = memoryCards.length - 1; index > 0; index--) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [memoryCards[index], memoryCards[randomIndex]] =
+      [memoryCards[randomIndex], memoryCards[index]];
+  }
+  memoryOpenCards = [];
+  memoryMatches = 0;
+  memoryLocked = false;
+  document.getElementById('memory-level').textContent =
+    `Level ${memoryLevel + 1} of ${memoryLevelCards.length}`;
+  document.getElementById('memory-status').textContent = 'Choose two cards to find a pair.';
+  document.getElementById('next-memory-level').style.display = 'none';
+  renderMemoryBoard();
+}
+
+function renderMemoryBoard() {
+  const board = document.getElementById('memory-board');
+  board.dataset.pairs = String(memoryLevelCards[memoryLevel].length);
+  board.innerHTML = '';
+  memoryCards.forEach((card, index) => {
+    const button = document.createElement('button');
+    button.className = 'memory-card';
+    button.type = 'button';
+    button.textContent = card.matched || memoryOpenCards.includes(index) ? card.symbol : '?';
+    button.setAttribute('aria-label', card.matched || memoryOpenCards.includes(index) ? card.symbol : 'Hidden card');
+    button.disabled = card.matched || memoryOpenCards.includes(index) || memoryLocked;
+    if (card.matched) button.classList.add('matched');
+    button.addEventListener('click', () => flipMemoryCard(index));
+    board.appendChild(button);
+  });
+}
+
+function flipMemoryCard(index) {
+  if (memoryLocked || memoryCards[index].matched || memoryOpenCards.includes(index)) return;
+  memoryOpenCards.push(index);
+  renderMemoryBoard();
+
+  if (memoryOpenCards.length !== 2) return;
+
+  const [first, second] = memoryOpenCards;
+  if (memoryCards[first].symbol === memoryCards[second].symbol) {
+    memoryCards[first].matched = true;
+    memoryCards[second].matched = true;
+    memoryOpenCards = [];
+    memoryMatches++;
+    if (memoryMatches === memoryLevelCards[memoryLevel].length) {
+      document.getElementById('memory-status').textContent = 'Level complete! Great memory.';
+      const nextButton = document.getElementById('next-memory-level');
+      nextButton.style.display = 'block';
+      nextButton.textContent = memoryLevel === memoryLevelCards.length - 1
+        ? 'Play again'
+        : 'Next level ➔';
+    }
+    renderMemoryBoard();
+    return;
+  }
+
+  memoryLocked = true;
+  document.getElementById('memory-status').textContent = 'Not a pair. Try another match.';
+  window.setTimeout(() => {
+    memoryOpenCards = [];
+    memoryLocked = false;
+    document.getElementById('memory-status').textContent = 'Choose two cards to find a pair.';
+    renderMemoryBoard();
+  }, 800);
+}
+
+function nextMemoryLevel() {
+  if (memoryLevel === memoryLevelCards.length - 1) {
+    startMemoryGame();
+    return;
+  }
+  memoryLevel++;
+  resetMemoryLevel();
+}
+
 function setGameMessage(text, state) {
   const message = document.getElementById('game-message');
   if (!message) return;
@@ -451,7 +811,7 @@ function launchSimulation() {
   const angle = parseFloat(document.getElementById('sim-angle').value) * (Math.PI / 180);
   const velocity = parseFloat(document.getElementById('sim-velocity').value);
   const proj = document.getElementById('sim-projectile');
-  
+
   let t = 0;
   const timer = setInterval(() => {
     t += 0.08;
@@ -479,10 +839,23 @@ function launchSimulation() {
 }
 
 function goHome() {
+  if (quizScreen.classList.contains('active')) {
+    leaveQuizDialog.showModal();
+    return;
+  }
   switchScreen(categoryScreen);
 }
 
+document.getElementById('stay-in-quiz').addEventListener('click', () => {
+  leaveQuizDialog.close();
+});
+
+document.getElementById('leave-quiz').addEventListener('click', () => {
+  leaveQuizDialog.close();
+  switchScreen(categoryScreen);
+});
+
 function switchScreen(activeScreen) {
-  [categoryScreen, quizScreen, resultScreen, blockGameScreen, physicsSimScreen].forEach(screen => screen.classList.remove('active'));
+  [categoryScreen, stageScreen, quizScreen, resultScreen, blockGameScreen, physicsSimScreen, memoryGameScreen].forEach(screen => screen.classList.remove('active'));
   activeScreen.classList.add('active');
 }

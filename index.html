@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TriviaGo - Streak & Simulation Edition</title>
+  <title>TriviaGo - Learning Hub</title>
   <link rel="manifest" href="manifest.json">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -11,7 +11,7 @@
 <body>
 
   <div class="app-card">
-    
+
     <!-- Home / Dashboard Screen -->
     <div id="category-screen" class="screen active">
       <div class="app-header">
@@ -36,50 +36,57 @@
         <span class="badge-pill">PLAY</span>
       </button>
 
-      <!-- Categories & Simulations -->
-      <div class="section-title" style="margin-bottom: 12px; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Select Subject / Simulation</div>
+      <div class="level-picker">
+        <label for="quiz-level">Choose question difficulty</label>
+        <select id="quiz-level">
+          <option value="beginner">Beginner · build the basics</option>
+          <option value="intermediate">Intermediate · apply what you know</option>
+          <option value="advanced">Advanced · stretch your skills</option>
+        </select>
+      </div>
+      <div class="section-title" style="margin-bottom: 12px; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Choose a subject or game</div>
       <div class="category-grid">
         <button class="cat-card" onclick="startQuiz('science')">
           <div class="cat-icon">🔬</div>
           <div class="cat-name">Science</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('gk')">
           <div class="cat-icon">🌍</div>
           <div class="cat-name">General Knowledge</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('geography')">
           <div class="cat-icon">🗺️</div>
           <div class="cat-name">Geography</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('history')">
           <div class="cat-icon">📜</div>
           <div class="cat-name">History</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('sports')">
           <div class="cat-icon">⚽</div>
           <div class="cat-name">Sports</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('coding')">
           <div class="cat-icon">💻</div>
           <div class="cat-name">Coding</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('english')">
           <div class="cat-icon">📖</div>
           <div class="cat-name">English</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
         <button class="cat-card" onclick="startQuiz('math')">
           <div class="cat-icon">📐</div>
           <div class="cat-name">Mathematics</div>
-          <div class="cat-count">20 questions</div>
+          <div class="cat-count">Quiz · staged levels</div>
         </button>
-        
+
         <!-- Interactive Game & Simulation Cards -->
         <button class="cat-card game-card" onclick="startBlockGame()">
           <div class="cat-icon">🤖</div>
@@ -95,13 +102,31 @@
             <div class="cat-count" style="margin-top: 2px;">Physics trajectory simulation</div>
           </div>
         </button>
+        <button class="cat-card game-card" onclick="startMemoryGame()">
+          <div class="cat-icon">🧠</div>
+          <div>
+            <div class="cat-name">Memory Match</div>
+            <div class="cat-count" style="margin-top: 2px;">Match the pairs · 3 levels</div>
+          </div>
+        </button>
       </div>
+    </div>
+
+    <div id="stage-screen" class="screen">
+      <div class="header">
+        <button class="back-btn" onclick="goHome()">← Subjects</button>
+      </div>
+      <p class="eyebrow">YOUR LEARNING PATH</p>
+      <h2 id="stage-title" class="title"></h2>
+      <p id="stage-description" class="subtitle"></p>
+      <div id="stage-list" class="stage-list"></div>
     </div>
 
     <!-- Quiz Screen -->
     <div id="quiz-screen" class="screen">
       <div class="header">
         <button class="back-btn" onclick="goHome()">← Back</button>
+        <span id="quiz-stage-label" class="game-level"></span>
         <div class="progress-bar-container">
           <div id="progress-bar" class="progress-bar"></div>
         </div>
@@ -111,13 +136,28 @@
       <button id="next-btn" class="primary-btn" style="display:none;" onclick="nextQuestion()">Next Question ➔</button>
     </div>
 
+    <dialog id="leave-quiz-dialog" class="leave-quiz-dialog" aria-labelledby="leave-quiz-title">
+      <div class="leave-quiz-content">
+        <div class="leave-quiz-icon" aria-hidden="true">⚠️</div>
+        <h2 id="leave-quiz-title">Leave this quiz?</h2>
+        <p>Your current quiz answers and score won't be saved if you leave now.</p>
+        <div class="leave-quiz-actions">
+          <button id="stay-in-quiz" class="secondary-btn" type="button">Keep playing</button>
+          <button id="leave-quiz" class="primary-btn" type="button">Leave quiz</button>
+        </div>
+      </div>
+    </dialog>
+
     <!-- Results Screen -->
     <div id="result-screen" class="screen" style="text-align:center;">
       <div class="trophy-icon">⚡</div>
       <h2 class="title" style="margin-bottom: 8px;">Challenge Complete!</h2>
       <div id="final-score" class="score-display"></div>
       <p id="xp-gained" style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">+0 XP Gained!</p>
-      <button class="primary-btn" onclick="goHome()">Back to Dashboard</button>
+      <button id="next-stage-btn" class="primary-btn" style="display:none;" onclick="startNextStage()">Next Stage ➔</button>
+      <button id="retry-stage-btn" class="secondary-btn" style="display:none;" onclick="startStage(currentStageIndex)">Retry Stage</button>
+      <button id="choose-stage-btn" class="secondary-btn" onclick="showStages()">Choose a Stage</button>
+      <button class="secondary-btn" onclick="goHome()">Back to Dashboard</button>
     </div>
 
     <!-- Block Coding Game Screen -->
@@ -128,7 +168,7 @@
       </div>
       <h2 class="game-title">Robot Coder</h2>
       <p class="game-instructions">Build a program to guide the robot 🤖 to the star ⭐!</p>
-      
+
       <div id="game-board" class="game-board"></div>
 
       <div class="block-heading">Your Program:</div>
@@ -160,7 +200,7 @@
       </div>
       <h2 class="game-title">Gravity & Velocity Sandbox</h2>
       <p class="game-instructions">Adjust parameters and launch the projectile to hit the target!</p>
-      
+
       <div class="sim-canvas-container" style="background: rgba(2, 6, 23, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; height: 180px; position: relative; overflow: hidden; margin-bottom: 14px;">
         <div id="sim-target" style="position: absolute; right: 30px; bottom: 20px; width: 24px; height: 24px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e;"></div>
         <div id="sim-projectile" style="position: absolute; left: 20px; bottom: 20px; width: 16px; height: 16px; background: var(--cyan-glow); border-radius: 50%; box-shadow: 0 0 10px var(--cyan-glow);"></div>
@@ -181,18 +221,36 @@
       <button class="primary-btn" onclick="launchSimulation()">🚀 Launch Projectile</button>
     </div>
 
+    <div id="memory-game-screen" class="screen">
+      <div class="header game-header">
+        <button class="back-btn" onclick="goHome()">← Back</button>
+        <span id="memory-level" class="game-level">Level 1</span>
+      </div>
+      <h2 class="game-title">Memory Match</h2>
+      <p class="game-instructions">Find every matching pair. Each level adds more cards.</p>
+      <p id="memory-status" class="game-message" aria-live="polite"></p>
+      <div id="memory-board" class="memory-board"></div>
+      <button id="next-memory-level" class="primary-btn" style="display:none;" onclick="nextMemoryLevel()">Next level ➔</button>
+      <button id="restart-memory" class="secondary-btn" onclick="startMemoryGame()">Restart game</button>
+    </div>
+
   </div>
 
   <!-- TriviaGo Learning Hub -->
 <button id="open-learning-hub" class="learning-launcher">
-  🧠 Learning Hub
+  <span class="learning-launcher-icon" aria-hidden="true">🧠</span>
+  <span class="learning-launcher-copy">
+    <span class="learning-launcher-kicker">YOUR NEXT LEVEL</span>
+    <span class="learning-launcher-title">Learning Hub</span>
+  </span>
+  <span class="learning-launcher-arrow" aria-hidden="true">↗</span>
 </button>
 
 <section id="learning-hub" class="learning-overlay" hidden>
   <div class="learning-panel">
     <header class="learning-header">
       <div>
-        <p class="learning-eyebrow">TRIVIAGO • STREAK EDITION</p>
+        <p class="learning-eyebrow">TRIVIAGO • LEARNING HUB</p>
         <h2>Learning Hub ✨</h2>
         <p>Play smarter. Learn something every day.</p>
       </div>
@@ -209,8 +267,8 @@
       </div>
       <div class="learning-stat">
         <span>🔥</span>
-        <strong id="learning-streak">0 days</strong>
-        <small>Learning streak</small>
+        <strong id="learning-lessons">0</strong>
+        <small>Lessons completed</small>
       </div>
       <div class="learning-stat">
         <span>🏅</span>
